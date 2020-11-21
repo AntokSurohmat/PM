@@ -5,8 +5,8 @@
     </h1>
     <ol class="breadcrumb">
       <li>PM</li>
-      <li><a href="<?= base_url('home/aspek')?>"><?= $parent ;?></a></li>
-      <li><a href="<?= base_url('home/aspekAdd')?>"><?= $page ;?></a></li>
+      <li><a href="<?= base_url('data/aspek')?>"><?= $parent ;?></a></li>
+      <li><a href="<?= base_url('data/aspekAdd')?>"><?= $page ;?></a></li>
     </ol>
     <?php if(validation_errors()) : ?>
       <!-- Row Note -->
@@ -51,12 +51,12 @@
           <div class="box-body">
 
 
-            <form class="form-horizontal" action="<?= base_url('home/aspekAdd')?>" method="post" role="form" >
+            <form class="form-horizontal" action="<?= base_url('data/aspekAdd')?>" method="post" role="form" >
 
               <div class="form-group">
                 <label for="addInputKode" class="col-sm-2 control-label">Kode Aspek</label>
                 <div class="col-sm-10">
-                  <input type="text" name="kode_aspek" class="form-control" id="addInputKode" placeholder="Kode Aspek" value="<?= set_value('kode_aspek')?>">
+                  <input type="text" name="kode_aspek" class="form-control" id="addInputKode" readonly placeholder="Kode Aspek" value="<?= kode_otomatisAspek() ?>">
                   <?php echo form_error('kode_aspek', '<small class="text-danger pl-3">', '</small>');?>
                 </div>
               </div>
@@ -89,7 +89,7 @@
                 </div>
               </div>
               <div class="box-footer justify-content-between">
-                <a type="button" class="btn btn-warning" href="<?= base_url('home/aspek')?>">Batal</a>
+                <a type="button" class="btn btn-warning" href="<?= base_url('data/aspek')?>">Batal</a>
                 <button type="submit" class="btn btn-primary pull-right">Simpan</button>
               </div>
             </form>

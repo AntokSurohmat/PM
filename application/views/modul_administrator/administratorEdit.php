@@ -5,8 +5,8 @@
     </h1>
     <ol class="breadcrumb">
       <li>PM</li>
-      <li><a href="<?= base_url('home/dataAdministrator')?>"><?= $parent ;?></a></li>
-      <li><a href="<?= base_url('home/dataAdministratorEdit/').$this->encrypt->encode($oneadministrator->id_administrator).''?>"><?= $page ;?></a></li>
+      <li><a href="<?= base_url('data/dataAdministrator')?>"><?= $parent ;?></a></li>
+      <li><a href="<?= base_url('data/dataAdministratorEdit/').$this->encrypt->encode($oneadministrator->id_administrator).''?>"><?= $page ;?></a></li>
     </ol>
     <?php if(validation_errors()) : ?>
       <!-- Row Note -->
@@ -51,7 +51,7 @@
           <div class="box-body">
 
 
-            <form class="form-horizontal" action="<?= base_url('home/dataAdministratorEdit/').$this->encrypt->encode($oneadministrator->id_administrator).''?>" method="post" role="form" >
+            <form class="form-horizontal" action="<?= base_url('data/dataAdministratorEdit/').$this->encrypt->encode($oneadministrator->id_administrator).''?>" method="post" role="form" >
 
               <input type="hidden" name="zz" readonly value="<?= $oneadministrator->id_administrator ?>" />
               <div class="form-group">
@@ -83,7 +83,7 @@
                 </div>
               </div>
               <div class="box-footer justify-content-between">
-                <a type="button" class="btn btn-warning" href="<?= base_url('home/dataAdministrator')?>">Batal</a>
+                <a type="button" class="btn btn-warning" href="<?= base_url('data/dataAdministrator')?>">Batal</a>
                 <button type="submit" class="btn btn-danger pull-right">Update</button>
               </div>
             </form>

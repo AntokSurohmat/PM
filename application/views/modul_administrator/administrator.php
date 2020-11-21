@@ -5,7 +5,7 @@
     </h1>
     <ol class="breadcrumb">
       <li>PM</li>
-      <li><a href="<?= base_url('home/dataAdministrator')?>"><?= $page ;?></a></li>
+      <li><a href="<?= base_url('data/dataAdministrator')?>"><?= $page ;?></a></li>
     </ol>
     <?php if(validation_errors()) : ?>
       <!-- Row Note -->
@@ -40,7 +40,7 @@
       <div class="box-header">
         <h3 class="box-title">Data Administrator</h3>
         <div class="box-tools pull-right">
-          <a class="btn bg-teal btn-sm" href="<?= base_url('home/dataAdministratorAdd')?>"><i class="fa fa-plus"> Add Data</i></a>
+          <a class="btn bg-teal btn-sm" href="<?= base_url('data/dataAdministratorAdd')?>"><i class="fa fa-plus"> Add Data</i></a>
         </div>
       </div>
       <!-- /.box-header -->
@@ -63,7 +63,7 @@
               <td><?= $admin->username; ?></td>
               <td><?= ($admin->aktif == 'Y') ? 'Ya' : 'Tidak' ?></td>
               <td>
-                <a class="btn btn-xs btn-warning" href="<?= base_url('home/dataAdministratorEdit/').$this->encrypt->encode($admin->id_administrator).'';?>" title="Edit"><i class="fa fa-edit"></i></a>
+                <a class="btn btn-xs btn-warning" href="<?= base_url('data/dataAdministratorEdit/').$this->encrypt->encode($admin->id_administrator).'';?>" title="Edit"><i class="fa fa-edit"></i></a>
                 <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModalAdministrator<?= $admin->id_administrator?>" title="Hapus"><i class="fa fa-trash-o"></i></a>
               </td>
             </tr>
@@ -91,7 +91,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default pull-left " data-dismiss="modal">Close</button>
-            <a class="btn btn-danger " href="<?php echo base_url('home/dataAdministratorDelete/'.$this->encrypt->encode($admin->id_administrator).'')?>">Delete</a>
+            <a class="btn btn-danger " href="<?php echo base_url('data/dataAdministratorDelete/'.$this->encrypt->encode($admin->id_administrator).'')?>">Delete</a>
           </div>
         </div>
         <!-- /.modal-content -->

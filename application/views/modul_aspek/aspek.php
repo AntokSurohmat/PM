@@ -5,7 +5,7 @@
     </h1>
     <ol class="breadcrumb">
       <li>PM</li>
-      <li><a href="<?= base_url('home/aspek')?>"><?= $page ;?></a></li>
+      <li><a href="<?= base_url('data/aspek')?>"><?= $page ;?></a></li>
     </ol>
     <?php if(validation_errors()) : ?>
       <!-- Row Note -->
@@ -40,7 +40,7 @@
       <div class="box-header">
         <h3 class="box-title">Data Administrator</h3>
         <div class="box-tools pull-right">
-          <a class="btn bg-teal btn-sm" href="<?= base_url('home/aspekAdd')?>"><i class="fa fa-plus"> Add Data</i></a>
+          <a class="btn bg-teal btn-sm" href="<?= base_url('data/aspekAdd')?>"><i class="fa fa-plus"> Add Data</i></a>
         </div>
       </div>
       <!-- /.box-header -->
@@ -67,7 +67,7 @@
               <td><?= $row->bobot_cf; ?></td>
               <td><?= $row->bobot_sf; ?></td>
               <td>
-                <a class="btn btn-xs btn-warning" href="<?= base_url('home/aspekEdit/').$this->encrypt->encode($row->kode_aspek).'';?>" title="Edit"><i class="fa fa-edit"></i></a>
+                <a class="btn btn-xs btn-warning" href="<?= base_url('data/aspekEdit/').$this->encrypt->encode($row->kode_aspek).'';?>" title="Edit"><i class="fa fa-edit"></i></a>
                 <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModalAspek<?= $row->kode_aspek?>" title="Hapus"><i class="fa fa-trash-o"></i></a>
               </td>
             </tr>
@@ -95,7 +95,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default pull-left " data-dismiss="modal">Close</button>
-            <a class="btn btn-danger " href="<?php echo base_url('home/aspekDelete/'.$this->encrypt->encode($row->kode_aspek).'')?>">Delete</a>
+            <a class="btn btn-danger " href="<?php echo base_url('data/aspekDelete/'.$this->encrypt->encode($row->kode_aspek).'')?>">Delete</a>
           </div>
         </div>
         <!-- /.modal-content -->

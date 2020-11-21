@@ -5,7 +5,7 @@
     </h1>
     <ol class="breadcrumb">
       <li>PM</li>
-      <li><a href="<?= base_url('home/dataPegawai')?>"><?= $page ;?></a></li>
+      <li><a href="<?= base_url('data/dataPegawai')?>"><?= $page ;?></a></li>
     </ol>
     <?php if(validation_errors()) : ?>
       <!-- Row Note -->
@@ -40,7 +40,7 @@
       <div class="box-header">
         <h3 class="box-title">Data Administrator</h3>
         <div class="box-tools pull-right">
-          <a class="btn bg-teal btn-sm" href="<?= base_url('home/dataPegawaiAdd')?>"><i class="fa fa-plus"> Add Data</i></a>
+          <a class="btn bg-teal btn-sm" href="<?= base_url('data/dataPegawaiAdd')?>"><i class="fa fa-plus"> Add Data</i></a>
         </div>
       </div>
       <!-- /.box-header -->
@@ -69,7 +69,7 @@
               <td><?= $row->pendidikan; ?></td>
               <td><?= $row->alamat; ?></td>
               <td>
-                <a class="btn btn-xs btn-warning" href="<?= base_url('home/dataPegawaiEdit/').$this->encrypt->encode($row->nik).'';?>" title="Edit"><i class="fa fa-edit"></i></a>
+                <a class="btn btn-xs btn-warning" href="<?= base_url('data/dataPegawaiEdit/').$this->encrypt->encode($row->nik).'';?>" title="Edit"><i class="fa fa-edit"></i></a>
                 <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModalPegawai<?= $row->nik?>" title="Hapus"><i class="fa fa-trash-o"></i></a>
               </td>
             </tr>
@@ -97,7 +97,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default pull-left " data-dismiss="modal">Close</button>
-            <a class="btn btn-danger " href="<?php echo base_url('home/dataPegawaiDelete/'.$this->encrypt->encode($row->nik).'')?>">Delete</a>
+            <a class="btn btn-danger " href="<?php echo base_url('data/dataPegawaiDelete/'.$this->encrypt->encode($row->nik).'')?>">Delete</a>
           </div>
         </div>
         <!-- /.modal-content -->

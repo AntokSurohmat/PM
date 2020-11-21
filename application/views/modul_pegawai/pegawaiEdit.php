@@ -5,8 +5,8 @@
     </h1>
     <ol class="breadcrumb">
       <li>PM</li>
-      <li><a href="<?= base_url('home/dataPegawai')?>"><?= $parent ;?></a></li>
-      <li><a href="<?= base_url('home/dataPegawaiEdit/').$this->encrypt->encode($onepegawai->nik).''?>"><?= $page ;?></a></li>
+      <li><a href="<?= base_url('data/dataPegawai')?>"><?= $parent ;?></a></li>
+      <li><a href="<?= base_url('data/dataPegawaiEdit/').$this->encrypt->encode($onepegawai->nik).''?>"><?= $page ;?></a></li>
     </ol>
     <?php if(validation_errors()) : ?>
       <!-- Row Note -->
@@ -51,7 +51,7 @@
           <div class="box-body">
 
 
-            <form class="form-horizontal" action="<?= base_url('home/dataPegawaiEdit/').$this->encrypt->encode($onepegawai->nik).''?>" method="post" role="form" >
+            <form class="form-horizontal" action="<?= base_url('data/dataPegawaiEdit/').$this->encrypt->encode($onepegawai->nik).''?>" method="post" role="form" >
 
               <input type="hidden" name="zz" readonly value="<?= $onepegawai->nik ?>" />
               <div class="form-group">
@@ -102,7 +102,7 @@
                 </div>
               </div>
               <div class="box-footer justify-content-between">
-                <a type="button" class="btn btn-warning" href="<?= base_url('home/dataPegawai')?>">Batal</a>
+                <a type="button" class="btn btn-warning" href="<?= base_url('data/dataPegawai')?>">Batal</a>
                 <button type="submit" class="btn btn-danger pull-right">Update</button>
               </div>
             </form>

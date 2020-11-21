@@ -5,8 +5,8 @@
     </h1>
     <ol class="breadcrumb">
       <li>PM</li>
-      <li><a href="<?= base_url('home/aspek')?>"><?= $parent ;?></a></li>
-      <li><a href="<?= base_url('home/aspekEdit/').$this->encrypt->encode($oneaspek->kode_aspek).''?>"><?= $page ;?></a></li>
+      <li><a href="<?= base_url('data/aspek')?>"><?= $parent ;?></a></li>
+      <li><a href="<?= base_url('data/aspekEdit/').$this->encrypt->encode($oneaspek->kode_aspek).''?>"><?= $page ;?></a></li>
     </ol>
     <?php if(validation_errors()) : ?>
       <!-- Row Note -->
@@ -51,7 +51,7 @@
           <div class="box-body">
 
 
-            <form class="form-horizontal" action="<?= base_url('home/aspekEdit/').$this->encrypt->encode($oneaspek->kode_aspek).''?>" method="post" role="form" >
+            <form class="form-horizontal" action="<?= base_url('data/aspekEdit/').$this->encrypt->encode($oneaspek->kode_aspek).''?>" method="post" role="form" >
 
               <input type="hidden" name="zz" readonly value="<?= $oneaspek->kode_aspek ?>" />
               <div class="form-group">
@@ -90,7 +90,7 @@
                 </div>
               </div>
               <div class="box-footer justify-content-between">
-                <a type="button" class="btn btn-warning" href="<?= base_url('home/aspek')?>">Batal</a>
+                <a type="button" class="btn btn-warning" href="<?= base_url('data/aspek')?>">Batal</a>
                 <button type="submit" class="btn btn-danger pull-right">Update</button>
               </div>
             </form>
