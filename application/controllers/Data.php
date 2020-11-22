@@ -446,7 +446,7 @@ class Data extends CI_Controller {
 
 		$data['user'] = $this->db->get_where('administrator',['username' => $this->session->userdata('username')])->row();
 
-		$data['faktor'] = $this->data_model->getFactor();
+		$data['faktor'] = $this->data_model->getFaktor();
 
 		$data['title'] = "Profile Matching";
 		$data['parent'] = "Data";
@@ -500,7 +500,7 @@ class Data extends CI_Controller {
 		$data['user'] = $this->db->get_where('administrator',['username' => $this->session->userdata('username')])->row();
 
 		$data['aspek'] = $this->data_model->getAspek();
-		$data['onefaktor'] = $this->data_model->getOneFactor($this->encrypt->decode($kode_faktor));
+		$data['onefaktor'] = $this->data_model->getOneFaktor($this->encrypt->decode($kode_faktor));
 
 		/*-- Encrypt URL NIM --*/
 		if (count($this->uri->segment_array()) > 3) {

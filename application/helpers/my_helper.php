@@ -48,9 +48,19 @@ function kode_otomatisFaktor() {
 	}
 }
 
+$skala = array(1 => 'Sangat Kurang', 2 => 'Kurang', 3 => 'Cukup', 4 => 'Baik', 5 => 'Sangat Baik') ;
+$pembobotan = array(0 => 5, 1 => 4.5, -1 => 4, 2 => 3.5, -2 => 3, 3 => 2.5, -3 => 2, 4 => 1.5, -4 => 1);
+
 function get_jumlah_faktor($aspek) {
 	$ci = get_instance();
 	$query = "SELECT * FROM faktor WHERE kode_aspek = '$aspek'";
 	return $ci->db->query($query)->num_rows();
 
+}
+
+function get_nilai_faktor($kode_faktor, $id_kandidat) {
+	$ci = get_instance();
+	$query ="SELECT nilai_faktor from detail_kandidat 
+	WHERE id_kandidat = '$id_kandidat' and kode_faktor = '$kode_faktor'";
+	return $ci->db->query($query)->row()->nilai_faktor;
 }

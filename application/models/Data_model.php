@@ -42,13 +42,13 @@ class Data_model extends CI_Model {
 
 	}
 
-	public function getFactor(){
+	public function getFaktor(){
 
 		$query = "SELECT * FROM faktor ORDER BY kode_faktor ASC";
 		return $this->db->query($query)->result();
 	}
 
-	public function getOneFactor($kode_faktor){
+	public function getOneFaktor($kode_faktor){
 
 		$query = "SELECT * FROM faktor WHERE kode_faktor LIKE '$kode_faktor' ";
 		return $this->db->query($query)->row();

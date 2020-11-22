@@ -8,9 +8,9 @@ class Kandidat_model extends CI_Model {
 		return $this->db->query($query)->result();
 	}
 
-	public function getOneKandidat($nik){
+	public function getOneKandidat($id_kandidat){
 
-		$query = "SELECT a.*, b.nama_pegawai FROM kandidat as a JOIN pegawai as b ON a.nik = b.nik WHERE a.nik = '$nik'";
+		$query = "SELECT a.*, b.nama_pegawai FROM kandidat as a JOIN pegawai as b ON a.nik = b.nik WHERE a.id_kandidat = '$id_kandidat'";
 		return $this->db->query($query)->row();
 	}
 

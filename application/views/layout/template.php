@@ -22,9 +22,13 @@
    <!-- Daterange picker -->
    <link rel="stylesheet" href="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/bootstrap-daterangepicker/daterangepicker.css">
    <!-- bootstrap wysihtml5 - text editor -->
-   <link rel="stylesheet" href="<?= base_url('assets/AdminLTE-2.4.18/');?>plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+   <!--    <link rel="stylesheet" href="<?= base_url('assets/AdminLTE-2.4.18/');?>plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"> -->
    <!-- DataTables -->
    <link rel="stylesheet" href="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+   <!-- Select2 -->
+   <link rel="stylesheet" href="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/select2/dist/css/select2.min.css">
+   <!-- Me -->
+   <link rel="stylesheet" href="<?= base_url('assets/PM/');?>css/me.css">
    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -94,14 +98,14 @@
     <!-- Bootstrap 3.3.7 -->
     <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- jQuery Knob Chart -->
-    <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
+    <!--     <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/jquery-knob/dist/jquery.knob.min.js"></script> -->
     <!-- daterangepicker -->
     <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/moment/min/moment.min.js"></script>
     <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- datepicker -->
     <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <!-- Bootstrap WYSIHTML5 -->
-    <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+    <!--     <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script> -->
     <!-- AdminLTE App -->
     <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>dist/js/adminlte.min.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
@@ -111,10 +115,21 @@
     <!-- DataTables -->
     <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <!-- Select2 -->
+    <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/select2/dist/js/select2.full.min.js"></script>
+    <!-- FastClick -->
+    <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/fastclick/lib/fastclick.js"></script>
+    <!-- SlimScroll -->
+    <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
     <script>
       $(function () {
         $('#example1').DataTable();
-
+        $('#example2').DataTable();
+        $('#example3').DataTable();
+        $('#example4').DataTable();
+        $('#example5').DataTable();
+        $('#example6').DataTable();
+        $('.select2').select2();
         var timeout = 5000; 
         $('.alert').delay(timeout).fadeOut(500);
       })

@@ -29,9 +29,9 @@
         </ul>
       </li>
       <li><a href="<?= base_url('kandidat/kandidat')?>"><i class="fa fa-fw fa-bar-chart-o"></i> <span>Kandidat Calon Pegawai</span></a></li>
-      <li><a href="manual.php"><i class="fa fa-fw fa-table"></i> <span>Manual Perhitungan</span></a></li>
-      <li><a href="hasil.akhir.php"><i class="fa fa-fw fa-edit"></i> <span>Hasil Perhitungan</span></a></li>
-      <li><a href="#" data-toggle="modal" data-target="#logOutModal" data-backdrop="static" data-keyboard="true"><i class="fa fa-fw fa-power-off"></i> <span>Logout</span></a></li>
+      <li><a href="<?= base_url('manual/manual')?>"><i class="fa fa-fw fa-table"></i> <span>Manual Perhitungan</span></a></li>
+      <li><a href="<?= base_url('home/hasil')?>"><i class="fa fa-fw fa-edit"></i> <span>Hasil Perhitungan</span></a></li>
+      <li><a href="#" data-toggle="modal" data-target="#logOutModal" data-backdrop="static" data-keyboard="true"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
     </ul>
   </section>
   <!-- /.sidebar -->
