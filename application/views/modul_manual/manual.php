@@ -486,7 +486,7 @@ foreach($this->db->query($sql)->result_array() as $data) {
             echo '<br>= <b>'.$tnilai .'</b>';
             echo '</td>';
             echo '<td>
-            <form action="'. base_url('manual/updateNilai/').$data['id_kandidat'].'" method="post" target="blank" >
+            <form action="'. base_url('manual/updateNilai/').$data['id_kandidat'].'" method="post" >
             <input type="hidden" readonly value="'.$tnilai.'" name="nilai_akhir" class="form-control" >
             <button type="submit" class="btn btn-sm btn-warning">Update</button>
             </form>
