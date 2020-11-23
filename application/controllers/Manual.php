@@ -29,13 +29,23 @@ class Manual extends CI_Controller {
 		$data['aspek'] = $this->data_model->getAspek();
 		$data['faktor'] = $this->data_model->getFaktor();
 		$data['kandidat'] = $this->kandidat_model->getKandidat();
-		// $data['detail'] = $this->kandidat_model->getDetailKandidat();
+
+		$data['pembobotan'] = array(0 => 5, 1 => 4.5, -1 => 4, 2 => 3.5, -2 => 3, 3 => 2.5, -3 => 2, 4 => 1.5, -4 => 1);
 
 		$data['administrator'] = $this->data_model->getAdministrator();
 		$data['title'] = "Profile Matching";
 		$data['parent'] = "Manual";
 		$data['page'] = "Manual Pehitungan";
 		$this->template->load('layout/template','modul_manual/manual',$data);
+
+	}
+
+	public function updateNilai($id_kandidat){
+
+		$this->db->where('id_kandidat', $id_kandidat);
+		$this->db->update('kandidat',['nilai_akhir' => $this->input->post('nilai_akhir')]);
+		$this->session->set_flashdata('success','Nilai Akhir Berhasil Di Update');
+		redirect('home/hasil');
 
 	}
 }

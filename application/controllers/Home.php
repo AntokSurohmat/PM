@@ -22,6 +22,11 @@ class Home extends CI_Controller {
 
 		$data['user'] = $this->db->get_where('administrator',['username' => $this->session->userdata('username')])->row();
 
+		$data['ttlCalonPegawai'] = $this->home_model->getCountCalonPegawai();
+		$data['ttlAspekPenilaian'] = $this->home_model->getCountAspekPenilaian();
+		$data['ttlFaktorPenilaian'] = $this->home_model->getCountFaktorPenilaian();
+		$data['ttlKandidat'] = $this->home_model->getCountKandidat();
+
 		$data['title'] = "Profile Matching";
 		$data['parent'] = "PM";
 		$data['page'] = "Beranda";

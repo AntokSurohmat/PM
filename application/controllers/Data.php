@@ -159,7 +159,7 @@ class Data extends CI_Controller {
 
 		$data['title'] = "Profile Matching";
 		$data['parent'] = "Data";
-		$data['page'] = "Pegawai";
+		$data['page'] = "Calon Pegawai";
 		$this->template->load('layout/template','modul_pegawai/pegawai',$data);
 
 	}
@@ -185,8 +185,8 @@ class Data extends CI_Controller {
 		if($this->form_validation->run() == false){
 
 			$data['title'] = "Profile Matching";
-			$data['parent'] = "Pegawai";
-			$data['page'] = "Add Pegawai";
+			$data['parent'] = "Calon Pegawai";
+			$data['page'] = "Add Calon Pegawai";
 			$this->template->load('layout/template','modul_pegawai/pegawaiAdd',$data);
 
 		}else{
@@ -252,8 +252,8 @@ class Data extends CI_Controller {
 		if($this->form_validation->run() == false){
 
 			$data['title'] = "Profile Matching";
-			$data['parent'] = "Pegawai";
-			$data['page'] = "Edit Pegawai";
+			$data['parent'] = "Calon Pegawai";
+			$data['page'] = "Edit Calon Pegawai";
 			$this->template->load('layout/template','modul_pegawai/pegawaiEdit',$data);
 
 		}else{
@@ -321,7 +321,7 @@ class Data extends CI_Controller {
 		if($this->form_validation->run() == false){
 
 			$data['title'] = "Profile Matching";
-			$data['parent'] = "Data";
+			$data['parent'] = "Aspek Penilaian";
 			$data['page'] = "Add Aspek Penilaian";
 			$this->template->load('layout/template','modul_aspek/aspekAdd',$data);
 
@@ -399,7 +399,7 @@ class Data extends CI_Controller {
 		if($this->form_validation->run() == false){
 
 			$data['title'] = "Profile Matching";
-			$data['parent'] = "Data";
+			$data['parent'] = "Aspek Penilaian";
 			$data['page'] = "Edit Aspek Penilaian";
 			$this->template->load('layout/template','modul_aspek/aspekEdit',$data);
 
@@ -450,7 +450,7 @@ class Data extends CI_Controller {
 
 		$data['title'] = "Profile Matching";
 		$data['parent'] = "Data";
-		$data['page'] = "Faktor";
+		$data['page'] = "Faktor Penilaian";
 		$this->template->load('layout/template','modul_faktor/faktor',$data);
 
 	}
@@ -463,17 +463,15 @@ class Data extends CI_Controller {
 		$data['aspek'] = $this->data_model->getAspek();
 
 		$this->form_validation->set_rules('kode_aspek','Kode Aspek','required');
-		$this->form_validation->set_rules('nama_faktor','Nama Faktor Penilaian','required|alpha',[
-			'alpha' => 'Nama Faktor Penilaian Hanya Berisi Huruf Alfabet',
-		]);
+		$this->form_validation->set_rules('nama_faktor','Nama Faktor Penilaian','required');
 		$this->form_validation->set_rules('jenis_faktor','Jenis Faktor Penilaian','required');
 		$this->form_validation->set_rules('nilai_target','Nilai Target','required');
 
 		if($this->form_validation->run() == false){
 
 			$data['title'] = "Profile Matching";
-			$data['parent'] = "Data";
-			$data['page'] = "Add Faktor";
+			$data['parent'] = "Faktor Penilaian";
+			$data['page'] = "Add Faktor Penilaian";
 			$this->template->load('layout/template','modul_faktor/faktorAdd',$data);
 
 		}else{
@@ -523,9 +521,7 @@ class Data extends CI_Controller {
 		// }
 
 		$this->form_validation->set_rules('kode_aspek','Kode Aspek','required');
-		$this->form_validation->set_rules('nama_faktor','Nama Faktor Penilaian','required|alpha',[
-			'alpha' => 'Nama Faktor Penilaian Hanya Berisi Huruf Alfabet',
-		]);
+		$this->form_validation->set_rules('nama_faktor','Nama Faktor Penilaian','required');
 		$this->form_validation->set_rules('jenis_faktor','Jenis Faktor Penilaian','required');
 		$this->form_validation->set_rules('nilai_target','Nilai Target','required|trim|is_natural',[
 			'is_natural' => 'Nilai Target Hanya Berisi Angka!',
@@ -534,8 +530,8 @@ class Data extends CI_Controller {
 		if($this->form_validation->run() == false){
 
 			$data['title'] = "Profile Matching";
-			$data['parent'] = "Data";
-			$data['page'] = "Edit Faktor";
+			$data['parent'] = "Faktor Penilaian";
+			$data['page'] = "Edit Faktor Penilaian";
 			$this->template->load('layout/template','modul_faktor/faktorEdit',$data);
 
 		}else{

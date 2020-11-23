@@ -41,7 +41,7 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
           <div class="inner">
-            <h3>150</h3>
+            <h3><?= $ttlCalonPegawai?></h3>
 
             <p>Calon Pegawai</p>
           </div>
@@ -56,7 +56,7 @@
         <!-- small box -->
         <div class="small-box bg-green">
           <div class="inner">
-            <h3>53</h3>
+            <h3><?= $ttlAspekPenilaian?></h3>
 
             <p>Aspek Penilaian</p>
           </div>
@@ -71,7 +71,7 @@
         <!-- small box -->
         <div class="small-box bg-yellow">
           <div class="inner">
-            <h3>44</h3>
+            <h3><?= $ttlFaktorPenilaian?></h3>
 
             <p>Faktor Penilaian</p>
           </div>
@@ -86,9 +86,9 @@
         <!-- small box -->
         <div class="small-box bg-red">
           <div class="inner">
-            <h3>65</h3>
+            <h3><?= $ttlKandidat?></h3>
 
-            <p>kandidat</p>
+            <p>Kandidat</p>
           </div>
           <div class="icon">
             <i class="ion ion-person"></i>

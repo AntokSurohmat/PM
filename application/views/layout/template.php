@@ -21,8 +21,6 @@
    <link rel="stylesheet" href="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
    <!-- Daterange picker -->
    <link rel="stylesheet" href="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/bootstrap-daterangepicker/daterangepicker.css">
-   <!-- bootstrap wysihtml5 - text editor -->
-   <!--    <link rel="stylesheet" href="<?= base_url('assets/AdminLTE-2.4.18/');?>plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"> -->
    <!-- DataTables -->
    <link rel="stylesheet" href="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
    <!-- Select2 -->
@@ -104,14 +102,8 @@
     <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- datepicker -->
     <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-    <!-- Bootstrap WYSIHTML5 -->
-    <!--     <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script> -->
     <!-- AdminLTE App -->
     <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>dist/js/pages/dashboard.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>dist/js/demo.js"></script>
     <!-- DataTables -->
     <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>

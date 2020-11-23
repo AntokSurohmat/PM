@@ -64,3 +64,25 @@ function get_nilai_faktor($kode_faktor, $id_kandidat) {
 	WHERE id_kandidat = '$id_kandidat' and kode_faktor = '$kode_faktor'";
 	return $ci->db->query($query)->row()->nilai_faktor;
 }
+
+
+function get_nilai_faktor_asli($faktor) {
+	$ci = get_instance();
+	$query = "SELECT nilai_target from faktor  
+	WHERE kode_faktor = '$faktor'";
+	return $ci->db->query($query)->row()->nilai_target;
+}
+
+function get_tipe_faktor($faktor) {
+	$ci = get_instance();
+	$query ="SELECT jenis_faktor from faktor  
+	WHERE kode_faktor = '$faktor'";
+	return $ci->db->query($query)->row()->jenis_faktor;
+}
+
+function get_nilai_akhir($nik) {
+	$ci = get_instance();
+	$query = "SELECT nilai_akhir from kandidat  
+	WHERE nik = '$nik'";
+	return $ci->db->query($query)->row()->nilai_akhir;
+}
