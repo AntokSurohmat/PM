@@ -54,7 +54,7 @@
 
             <form class="form-horizontal" action="<?= base_url('kandidat/kandidatEdit/').$this->encrypt->encode($onekandidat->id_kandidat).''?>" method="post" role="form" >
 
-              <input type="hidden" name="zz" readonly value="<?= $onekandidat->id_kandidat ?>" />
+              <input type="text" name="zz" readonly value="<?= $onekandidat->id_kandidat ?>" />
               <div class="form-group">
                 <label for="editInputNama" class="col-sm-4 control-label">Nama Pegawai</label>
                 <div class="col-sm-8">

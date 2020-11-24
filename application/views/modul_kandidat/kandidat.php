@@ -54,42 +54,44 @@
               <?php foreach($aspek as $row) : ?>
                 <th colspan="<?= get_jumlah_faktor($row->kode_aspek) ;?>"><?= $row->nama_aspek ;?></th>
               <?php endforeach; ?>
-            <th rowspan="2" width="67">Aksi</th>
+              <th rowspan="2" width="67">Aksi</th>
+            </tr>
+            <tr>
+              <?php $sqlfak ="SELECT * FROM faktor ORDER BY kode_aspek, kode_faktor ASC"; ?>
+              <?php foreach($this->db->query($sqlfak)->result() as $row) : ?>
+              <th width="30"><?= $row->kode_faktor ?></th>
+            <?php endforeach;?>
           </tr>
-          <tr>
-            <?php $sqlfak ="SELECT * FROM faktor ORDER BY kode_aspek, kode_faktor ASC"; ?>
-            <?php foreach($this->db->query($sqlfak)->result() as $row) : ?>
-            <th width="30"><?= $row->kode_faktor ?></th>
-          <?php endforeach;?>
-        </tr>
-      </thead>
-      <tbody>
-        <?php 
-        $sql ="SELECT a.*, s.nama_pegawai from kandidat as a, pegawai as s where s.nik = a.nik order by id_kandidat asc "; 
-        ?>
-        <?php $i=0; foreach ($this->db->query($sql)->result() as $data) :  $i++;?>
-        <tr>
-          <th scope="row"><?= $i ;?></th>
-          <td><?= $data->nik; ?></td>
-          <td><?= $data->nama_pegawai; ?></td>
+        </thead>
+        <tbody>
           <?php 
-          $sqldet = "SELECT *
-          from detail_kandidat 
-          WHERE id_kandidat = '$data->id_kandidat'
-          order by kode_faktor asc";
+          $sql ="SELECT a.*, s.nama_pegawai from kandidat as a, pegawai as s where s.nik = a.nik order by id_kandidat asc "; 
           ?>
-          <?php foreach( $this->db->query($sqldet)->result() as $datadet): ?>
-          <td><?= $datadet->nilai_faktor ?></td>
-        <?php endforeach ?>   
+          <?php $i=0; foreach ($this->db->query($sql)->result() as $data) :  $i++;?>
+          <tr>
+            <th scope="row"><?= $i ;?></th>
+            <td><?= $data->nik; ?></td>
+            <td><?= $data->nama_pegawai; ?></td>
+            <?php
+            
+            $sqldet = "SELECT *
+            from detail_kandidat 
+            WHERE id_kandidat = '$data->id_kandidat'
+            order by kode_faktor asc";
 
-        <td>
-          <a class="btn btn-xs btn-warning" href="<?= base_url('kandidat/kandidatEdit/').$this->encrypt->encode($data->id_kandidat).''?>" title="Edit"><i class="fa fa-edit"></i></a>
-          <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModalKandidat<?= $data->id_kandidat?>" title="Hapus"><i class="fa fa-trash-o"></i></a>
-        </td>
-      </tr>
-    <?php endforeach; ?>
-  </tbody>
-</table>
+            ?>
+            <?php foreach( $this->db->query($sqldet)->result() as $datadet): ?>
+            <td><?= $datadet->nilai_faktor ?></td> 
+          <?php endforeach ?>   
+
+          <td>
+            <a class="btn btn-xs btn-warning" href="<?= base_url('kandidat/kandidatEdit/').$this->encrypt->encode($data->id_kandidat).''?>" title="Edit"><i class="fa fa-edit"></i></a>
+            <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModalKandidat<?= $data->id_kandidat?>" title="Hapus"><i class="fa fa-trash-o"></i></a>
+          </td>
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
 </div>
 <!-- /.box-body -->
 </div>

@@ -127,8 +127,9 @@ class Kandidat extends CI_Controller {
 
 		}else{
 
-			$this->db->where('id_kandidat', $this->input->post('zz'));
-			$this->db->update('kandidat',['nik' => $this->input->post('nik')]);
+
+			$this->db->where('id_kandidat', $id_kandidat);
+			$sql = $this->db->update('kandidat',['nik' => $this->input->post('nik')]);
 
 
 			foreach ($this->input->post('faktor') as $key => $value) {
@@ -137,7 +138,6 @@ class Kandidat extends CI_Controller {
 				$this->db->where('kode_faktor', $key);
 				$this->db->where('id_kandidat', $this->input->post('zz'));
 				$this->db->update('detail_kandidat',['nilai_faktor' => $value]);
-
 			}
 
 			$this->session->set_flashdata('success','Kandidat Calon "'.$this->input->post('nik').'" Berhasil Di Update');

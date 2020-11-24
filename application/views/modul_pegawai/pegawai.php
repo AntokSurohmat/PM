@@ -64,7 +64,7 @@
               <th scope="row"><?= $i ;?></th>
               <td><?= $row->nik; ?></td>
               <td><?= $row->nama_pegawai; ?></td>
-              <td><?= $row->tempat_lahir .','.date('d F Y', strtotime($row->tanggal_lahir)) ?></td>
+              <td><?= $row->tempat_lahir .', '.date('d F Y', strtotime($row->tanggal_lahir)) ?></td>
               <td><?= $row->jenis_kelamin; ?></td>
               <td><?= $row->pendidikan; ?></td>
               <td><?= $row->alamat; ?></td>

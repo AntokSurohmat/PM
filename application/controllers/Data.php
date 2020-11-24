@@ -173,12 +173,8 @@ class Data extends CI_Controller {
 			'is_natural' => 'NIK Hanya Berisi Angka!',
 			'is_unique' => 'NIK Yang Anda Masukkan Telah Dipakai!'
 		]);
-		$this->form_validation->set_rules('nama_pegawai','Nama Pegawai','required|alpha',[
-			'alpha' => 'Nama Pegawai Hanya Berisi Huruf Alfabet'
-		]);
-		$this->form_validation->set_rules('tempat_lahir','Tempat Lahir','required|alpha',[
-			'alpha' => 'Tempat Lahir Hanya Berisi Huruf Alfabet'
-		]);
+		$this->form_validation->set_rules('nama_pegawai','Nama Pegawai','required');
+		$this->form_validation->set_rules('tempat_lahir','Tempat Lahir','required');
 		$this->form_validation->set_rules('tanggal_lahir','Tanggal Lahir','required');
 		$this->form_validation->set_rules('alamat','Alamat','required');
 
@@ -229,7 +225,7 @@ class Data extends CI_Controller {
 			redirect('data/dataPegawai');
 		} 
 
-//id_administrator masih salah
+		//id_administrator masih salah
 		// if(!$oneadministrator->id_administrator == $this->encrypt->decode($id_administrator)){
 		// 	$this->session->set_flashdata('message','NIK Yang Diminta Tidak Sama');
 		// 	redirect('data/dataAdministrator');
@@ -240,12 +236,8 @@ class Data extends CI_Controller {
 		$this->form_validation->set_rules('nik_pegawai','NIK','required|trim|is_natural',[
 			'is_natural' => 'NIK Hanya Berisi Angka!'
 		]);
-		$this->form_validation->set_rules('nama_pegawai','Nama Pegawai','required|alpha',[
-			'alpha' => 'Nama Pegawai Hanya Berisi Huruf Alfabet'
-		]);
-		$this->form_validation->set_rules('tempat_lahir','Tempat Lahir','required|alpha',[
-			'alpha' => 'Tempat Lahir Hanya Berisi Huruf Alfabet'
-		]);
+		$this->form_validation->set_rules('nama_pegawai','Nama Pegawai','required');
+		$this->form_validation->set_rules('tempat_lahir','Tempat Lahir','required');
 		$this->form_validation->set_rules('tanggal_lahir','Tanggal Lahir','required');
 		$this->form_validation->set_rules('alamat','Alamat','required');
 
@@ -303,9 +295,7 @@ class Data extends CI_Controller {
 
 		$data['user'] = $this->db->get_where('administrator',['username' => $this->session->userdata('username')])->row();
 
-		$this->form_validation->set_rules('nama_aspek','Nama Aspek','required|alpha',[
-			'alpha' => 'Nama Pegawai Hanya Berisi Huruf Alfabet',
-		]);
+		$this->form_validation->set_rules('nama_aspek','Nama Aspek','required');
 		$this->form_validation->set_rules('bobot','Bobot','required|is_natural',[
 			'is_natural' => 'Bobot Hanya Berisi Angka!'
 		]);
@@ -381,9 +371,7 @@ class Data extends CI_Controller {
 		// 	redirect('data/dataAdministrator');
 		// }
 
-		$this->form_validation->set_rules('nama_aspek','Nama Aspek','required|alpha',[
-			'alpha' => 'Nama Pegawai Hanya Berisi Huruf Alfabet',
-		]);
+		$this->form_validation->set_rules('nama_aspek','Nama Aspek','required');
 		$this->form_validation->set_rules('bobot','Bobot','required|is_natural',[
 			'is_natural' => 'Bobot Hanya Berisi Angka!'
 		]);
@@ -514,7 +502,7 @@ class Data extends CI_Controller {
 			redirect('data/faktor');
 		} 
 
-//id_administrator masih salah
+		//id_administrator masih salah
 		// if(!$oneadministrator->id_administrator == $this->encrypt->decode($id_administrator)){
 		// 	$this->session->set_flashdata('message','NIK Yang Diminta Tidak Sama');
 		// 	redirect('data/dataAdministrator');
@@ -558,6 +546,7 @@ class Data extends CI_Controller {
 	public function faktorDelete($kode_faktor){
 
 		$this->db->delete('faktor',['kode_faktor' => $this->encrypt->decode($kode_faktor)]);
+		$this->db->delete('detail_kandidat', ['kode_faktor' => $this->encrypt->decode($kode_faktor)]);
 		$this->session->set_flashdata('success','Faktor Penilaian Yang Anda Pilih Berhasil Di Hapus');
 		redirect('data/faktor');
 
