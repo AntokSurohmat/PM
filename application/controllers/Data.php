@@ -272,7 +272,10 @@ class Data extends CI_Controller {
 	}
 
 	public function dataPegawaiDelete($nik){
-
+		$query = "SELECT * FROM kandidat where nik = '".$this->encrypt->decode($nik)."'";
+		$kandidat = $this->db->query($query)->row();
+		$this->db->delete('kandidat',['nik' => $this->encrypt->decode($nik)]);
+		$this->db->delete('detail_kandidat',['id_kandidat' => $kandidat->id_kandidat]);
 		$this->db->delete('pegawai',['nik' => $this->encrypt->decode($nik)]);
 		$this->session->set_flashdata('success','Data Pegawai Yang Anda Pilih Berhasil Di Hapus');
 		redirect('data/dataPegawai');

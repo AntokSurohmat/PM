@@ -126,6 +126,8 @@
 </section>
 <!-- /.content -->
 
+
+
 <!-- main Content -->
 <section class="content">
   <h3>
@@ -398,7 +400,7 @@ foreach($this->db->query($sql)->result_array() as $data) {
 
   <div class="box">
     <div class="box-header">
-      <h3 class="box-title">Pembobotan untuk Aspek <?= $row->nama_aspek?></h3>
+      <h3 class="box-title">Perhitungan Nilai Akhir</h3>
       <div class="pull-right box-tools">
         <button type="button" class="btn btn-primary btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
         </button>
