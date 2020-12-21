@@ -5,8 +5,8 @@
     </h1>
     <ol class="breadcrumb">
       <li>PM</li>
-      <li><a href="<?= base_url('admin/aspek')?>"><?= $parent ;?></a></li>
-      <li><a href="<?= base_url('admin/aspekEdit/').$this->encrypt->encode($oneaspek->kode_aspek).''?>"><?= $page ;?></a></li>
+      <li><a href="<?= base_url('users/aspek')?>"><?= $parent ;?></a></li>
+      <li><a href="<?= base_url('users/aspekEdit/').$this->encrypt->encode($oneaspek->kode_aspek).''?>"><?= $page ;?></a></li>
     </ol>
     <?php if(validation_errors()) : ?>
       <!-- Row Note -->
@@ -51,47 +51,41 @@
           <div class="box-body">
 
 
-            <form class="form-horizontal" action="<?= base_url('admin/aspekEdit/').$this->encrypt->encode($oneaspek->kode_aspek).''?>" method="post" role="form" >
+            <form class="form-horizontal" action="#" method="post" role="form" >
 
-              <input type="hidden" name="zz" readonly value="<?= $oneaspek->kode_aspek ?>" />
+              <input type="hidden" name="zz" disabled value="<?= $oneaspek->kode_aspek ?>" />
               <div class="form-group">
                 <label for="editInputKode" class="col-sm-2 control-label">Kode Aspek</label>
                 <div class="col-sm-10">
-                  <input type="text" name="kode_aspek" class="form-control" id="editInputKode" placeholder="Kode Aspek" value="<?= $oneaspek->kode_aspek?>">
-                  <?php echo form_error('kode_aspek', '<small class="text-danger pl-3">', '</small>');?>
+                  <input type="text" name="kode_aspek" class="form-control" id="editInputKode" placeholder="Kode Aspek" value="<?= $oneaspek->kode_aspek?>" disabled>
                 </div>
               </div>
               <div class="form-group">
                 <label for="editInputNama" class="col-sm-2 control-label">Nama Aspek</label>
                 <div class="col-sm-10">
-                  <input type="text" name="nama_aspek" class="form-control" id="editInputNama" placeholder="Nama Aspek" value="<?= $oneaspek->nama_aspek?>">
-                  <?php echo form_error('nama_aspek', '<small class="text-danger pl-3">', '</small>');?>
+                  <input type="text" name="nama_aspek" class="form-control" id="editInputNama" placeholder="Nama Aspek" value="<?= $oneaspek->nama_aspek?>" disabled>
                 </div>
               </div>
               <div class="form-group">
                 <label for="editInputbobot" class="col-sm-2 control-label">Bobot</label>
                 <div class="col-sm-10">
-                  <input type="text" name="bobot" class="form-control" id="editInputbobot" placeholder="Bobot" value="<?= $oneaspek->bobot?>">
-                  <?php echo form_error('bobot', '<small class="text-danger pl-3">', '</small>');?>
+                  <input type="text" name="bobot" class="form-control" id="editInputbobot" placeholder="Bobot" value="<?= $oneaspek->bobot?>" disabled>
                 </div>
               </div>
               <div class="form-group">
                 <label for="editInputBCF" class="col-sm-2 control-label">Bobot Core Factor</label>
                 <div class="col-sm-10">
-                  <input type="text" name="bcf" class="form-control" id="editInputBCF" placeholder="Bobot Core Factor" value="<?= $oneaspek->bobot_cf?>">
-                  <?php echo form_error('bcf', '<small class="text-danger pl-3">', '</small>');?>
+                  <input type="text" name="bcf" class="form-control" id="editInputBCF" placeholder="Bobot Core Factor" value="<?= $oneaspek->bobot_cf?>" disabled>
                 </div>
               </div>
               <div class="form-group">
                 <label for="editInputBSF" class="col-sm-2 control-label">Bobot Secondary Factor</label>
                 <div class="col-sm-10">
-                  <input type="text" name="bsf" class="form-control" id="editInputBSF" placeholder="Bobot Secondary Factor" value="<?= $oneaspek->bobot_sf ?>">
-                  <?php echo form_error('bsf', '<small class="text-danger pl-3">', '</small>');?>
+                  <input type="text" name="bsf" class="form-control" id="editInputBSF" placeholder="Bobot Secondary Factor" value="<?= $oneaspek->bobot_sf ?>" disabled>
                 </div>
               </div>
               <div class="box-footer justify-content-between">
-                <a type="button" class="btn btn-warning" href="<?= base_url('admin/aspek')?>">Batal</a>
-                <button type="submit" class="btn btn-danger pull-right">Update</button>
+                <a type="button" class="btn btn-default" href="<?= base_url('users/aspek')?>">Back</a>
               </div>
             </form>
 

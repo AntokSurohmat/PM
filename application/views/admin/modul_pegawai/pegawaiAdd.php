@@ -5,8 +5,8 @@
     </h1>
     <ol class="breadcrumb">
       <li>PM</li>
-      <li><a href="<?= base_url('users/pegawai')?>"><?= $parent ;?></a></li>
-      <li><a href="<?= base_url('users/pegawaiDetail/').$this->encrypt->encode($onepegawai->nik).''?>"><?= $page ;?></a></li>
+      <li><a href="<?= base_url('admin/dataPegawai')?>"><?= $parent ;?></a></li>
+      <li><a href="<?= base_url('admin/dataPegawaiAdd')?>"><?= $page ;?></a></li>
     </ol>
     <?php if(validation_errors()) : ?>
       <!-- Row Note -->
@@ -42,40 +42,39 @@
       </div>
 
       <div class="col-md-10">
-        <div class="box box-warning">
+        <div class="box box-primary">
           <div class="box-header with-border">
-            <h3 class="box-title">Data <?= $page ?></h3>
+            <h3 class="box-title">Add Pegawai</h3>
           </div>
           <!-- /.box-header -->
 
           <div class="box-body">
 
 
-            <form class="form-horizontal" action="#" method="post" role="form" >
+            <form class="form-horizontal" action="<?= base_url('admin/dataPegawaiAdd')?>" method="post" role="form" >
 
-              <input type="hidden" name="zz" readonly value="<?= $onepegawai->nik ?>" />
               <div class="form-group">
                 <label for="addInputNIK" class="col-sm-2 control-label">NIK</label>
                 <div class="col-sm-10">
-                  <input type="text" readonly="true" name="nik_pegawai" class="form-control" id="addInputNIK" placeholder="NIK" value="<?= $onepegawai->nik?>" readonly>
+                  <input type="text" name="nik_pegawai" class="form-control" id="addInputNIK" placeholder="NIK" value="<?= set_value('nik_pegawai')?>">
                   <?php echo form_error('nik_pegawai', '<small class="text-danger pl-3">', '</small>');?>
                 </div>
               </div>
               <div class="form-group">
                 <label for="addInputNama" class="col-sm-2 control-label">Nama Pegawai</label>
                 <div class="col-sm-10">
-                  <input type="text" name="nama_pegawai" class="form-control" id="addInputNama" placeholder="Nama Pegawai" value="<?= $onepegawai->nama_pegawai?>">
+                  <input type="text" name="nama_pegawai" class="form-control" id="addInputNama" placeholder="Nama Pegawai" value="<?= set_value('nama_pegawai')?>">
                   <?php echo form_error('nama_pegawai', '<small class="text-danger pl-3">', '</small>');?>
                 </div>
               </div>
               <div class="form-group">
                 <label for="addinputTTL" class="col-sm-2 control-label">Tempat, Tanggal Lahir</label>
                 <div class="col-sm-2">
-                  <input type="text" name="tempat_lahir" class="form-control" id="addinputTTL" placeholder="Tempat Lahir" value="<?= $onepegawai->tempat_lahir?>">
+                  <input type="text" name="tempat_lahir" class="form-control" id="addinputTTL" placeholder="Tempat Lahir" value="<?= set_value('tempat_lahir')?>">
                   <?php echo form_error('tempat_lahir', '<small class="text-danger pl-3">', '</small>');?>
                 </div>
                 <div class="col-sm-8">
-                  <input type="date" name="tanggal_lahir" class="form-control" id="addinputTTL" value="<?= $onepegawai->tanggal_lahir?>">
+                  <input type="date" name="tanggal_lahir" class="form-control" id="addinputTTL" >
                   <?php echo form_error('tanggal_lahir', '<small class="text-danger pl-3">', '</small>');?>
                 </div>
               </div>
@@ -83,27 +82,27 @@
                 <label for="addinputKelamin" class="col-sm-2 control-label">Jenis Kelamin</label>
                 <div class="col-sm-10">
                   <select class="form-control" name="jenis_kelamin" id="addinputKelamin">
-                    <option value="L" <?= ($onepegawai->jenis_kelamin == "L") ? ' selected' : '' ?>>Laki-Laki</option>
-                    <option value="P" <?= ($onepegawai->jenis_kelamin == "P") ? ' selected' : '' ?>>Perempuan</option>
+                    <option value="L">Laki-Laki</option>
+                    <option value="P">Perempuan</option>
                   </select>
                 </div>
               </div>
               <div class="form-group">
                 <label for="addInputPendidikan" class="col-sm-2 control-label">Pendidikan</label>
                 <div class="col-sm-10">
-                  <input type="text" name="pendidikan" class="form-control" id="addInputPendidikan" placeholder="Pendidikan Terakhir" value="<?= $onepegawai->pendidikan?>">
+                  <input type="text" name="pendidikan" class="form-control" id="addInputPendidikan" placeholder="Pendidikan Terakhir" value="<?= set_value('pendidikan')?>">
                 </div>
               </div>
               <div class="form-group">
                 <label for="addinputAlamat" class="col-sm-2 control-label">Alamat</label>
                 <div class="col-sm-10">
-                  <textarea class="form-control" name="alamat"  id="addinputAlamat"><?= $onepegawai->alamat?></textarea>
+                  <textarea class="form-control" name="alamat"  id="addinputAlamat"><?= set_value('alamat')?></textarea>
                   <?php echo form_error('alamat', '<small class="text-danger pl-3">', '</small>');?>
                 </div>
               </div>
               <div class="box-footer justify-content-between">
                 <a type="button" class="btn btn-warning" href="<?= base_url('admin/dataPegawai')?>">Batal</a>
-                <button type="submit" class="btn btn-danger pull-right">Update</button>
+                <button type="submit" class="btn btn-primary pull-right">Simpan</button>
               </div>
             </form>
 

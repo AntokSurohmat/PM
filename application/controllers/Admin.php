@@ -672,7 +672,22 @@ class Admin extends CI_Controller {
 		}
 	}
 
-	public function kandidatEdit($id_kandidat){
+	public function kandidatEdit($id_kandidat = null){
+
+		/*-- Encrypt URL NIM --*/
+		if (count($this->uri->segment_array()) > 3) {
+			$this->session->set_flashdata('message','URL yang anda masukkan salah');
+			redirect('admin/kandidat');
+		}
+		if (!isset($id_kandidat)) {
+			$this->session->set_flashdata('message','Data yang Anda Inginkan Tidak Mempunyai ID');
+			redirect('admin/kandidat');
+		}
+		if (is_numeric($id_kandidat)) {
+			$this->session->set_flashdata('message','Url Hanya Bisa Diakses Setelah Terenkripsi');
+			redirect('admin/kandidat');
+		} 
+
 
 		$data['user'] = $this->db->get_where('administrator',['username' => $this->session->userdata('username')])->row();
 
@@ -687,7 +702,7 @@ class Admin extends CI_Controller {
 
 			$data['title'] = "Profile Matching";
 			$data['parent'] = "Kandidat";
-			$data['page'] = "Add Kandidat Calon Pegawai";
+			$data['page'] = "Edit Kandidat Calon Pegawai";
 			$this->template->load('admin/layout/template','admin/modul_kandidat/kandidatEdit',$data);
 
 		}else{
@@ -754,6 +769,100 @@ class Admin extends CI_Controller {
 
 		$data['user'] = $this->db->get_where('administrator',['username' => $this->session->userdata('username')])->row();
 
+
+
+		$data['kandidathasil'] = $this->admin_model->getKandidatHasil();
+		$data['allmasuk'] = $this->admin_model->getAllDiTerima();
+		$data['title'] = "Profile Matching";
+		$data['parent'] = "PM";
+		$data['page'] = "Hasil Perhitungan";
+		$this->template->load('admin/layout/template','admin/modul_hasil/hasil',$data);
+
+	}
+
+	public function pekerjaTerima($nik = null){
+
+		$data['user'] = $this->db->get_where('administrator',['username' => $this->session->userdata('username')])->row();
+
+		$data['kandidathasil'] = $this->admin_model->getKandidatHasil();
+		$data['allmasuk'] = $this->admin_model->getAllDiTerima();
+
+		$this->form_validation->set_rules('zz','NIK Kandidat','required');
+
+
+		if($this->form_validation->run() == false){
+
+			$data['title'] = "Profile Matching";
+			$data['parent'] = "PM";
+			$data['page'] = "Hasil Perhitungan";
+			$this->template->load('admin/layout/template','admin/modul_hasil/hasil',$data);
+
+		}else{
+
+			$nikkk = $this->input->post('zz');
+			$this->db->query("
+				INSERT INTO pekerja(nik,nama_pekerja,tempat_lahir,tanggal_lahir,jenis_kelamin,alamat,pendidikan)
+				SELECT nik,nama_pegawai,tempat_lahir,tanggal_lahir,jenis_kelamin,alamat,pendidikan 
+				FROM pegawai WHERE nik = '$nikkk' 
+				");
+
+			$id_pekerja = $this->db->insert_id();
+
+			$query = "SELECT * FROM detail_kandidat JOIN kandidat ON detail_kandidat.id_kandidat = kandidat.id_kandidat WHERE kandidat.nik = '$nikkk' ";
+
+			$kode = array();
+			$nilai = array();
+
+			foreach ($this->db->query($query)->result() as $key) {
+				$kode[] = $key->kode_faktor;
+				$nilai[] = $key->nilai_faktor;
+			}
+
+			$faktor = array(
+				'kode_faktor' => $kode,
+				'nilai_faktor' => $nilai
+			);
+
+			$json_format = json_encode($faktor);
+			$nilai_akhir = $this->db->query($query)->row()->nilai_akhir;
+			$data = [
+
+				'tgl_diterima' => date('Y-m-d'),
+				'faktor' => $json_format,
+				'nilai_akhir' => $nilai_akhir,
+				'kandidat_terima' => 1
+			];
+
+
+			$this->db->where('id_pekerja', $id_pekerja);
+			$this->db->update('pekerja', $data);
+
+			$kandidat_id = $this->db->query($query)->row()->id_kandidat;
+			// var_dump($kandidat_id);
+			// die();
+
+			$this->db->delete('detail_kandidat',['id_kandidat' => $kandidat_id]);
+			$this->db->delete('kandidat',['id_kandidat' => $kandidat_id]);
+
+			$this->session->set_flashdata('success','Pegawai Yang Anda Pilih Telah Diterima Dengan ID '.$id_pekerja.' ok');
+			redirect('admin/hasil');
+		}
+
+	}
+
+	public function pekerjaTerimaDetail($id_pekerja = null){
+		$data['kandidathasil'] = $this->admin_model->getKandidatHasil();
+
+		$data['title'] = "Profile Matching";
+		$data['parent'] = "PM";
+		$data['page'] = "Detail Pekerja";
+		$this->template->load('admin/layout/template','admin/modul_hasil/hasilDetail',$data);
+	}
+
+	public function pekerjakembalikan(){
+
+		$data['user'] = $this->db->get_where('administrator',['username' => $this->session->userdata('username')])->row();
+
 		$data['kandidathasil'] = $this->admin_model->getKandidatHasil();
 
 		$data['title'] = "Profile Matching";
@@ -763,5 +872,13 @@ class Admin extends CI_Controller {
 
 	}
 
-	
+	public function pekerjadelete($id_pekerja = null){
+
+		$this->db->delete('pekerja',['id_pekerja' => $this->encrypt->decode( $id_pekerja)]);
+		$this->session->set_flashdata('success','Data Pekerja Yang anda pilih berhasil dihapus');
+		redirect('admin/hasil');
+
+	}
+
+
 }

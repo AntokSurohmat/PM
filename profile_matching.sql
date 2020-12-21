@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 23, 2020 at 09:53 AM
+-- Generation Time: Dec 21, 2020 at 11:52 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.19
 
@@ -33,16 +33,18 @@ CREATE TABLE `administrator` (
   `nama_administrator` varchar(30) NOT NULL,
   `username` varchar(25) NOT NULL,
   `password` varchar(225) NOT NULL,
-  `aktif` char(1) NOT NULL DEFAULT 'N'
+  `aktif` char(1) NOT NULL DEFAULT 'N',
+  `level` varchar(6) NOT NULL,
+  `nik_pegawai` bigint(16) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `administrator`
 --
 
-INSERT INTO `administrator` (`id_administrator`, `nama_administrator`, `username`, `password`, `aktif`) VALUES
-(1, 'Administrator', 'admin', '$2y$10$NY2kKQBgx29bPmoP1YXe/eijF24VMm7VU8FE2u0YBkfQ5HgMNOCpy', 'Y'),
-(2, 'Asda', 'aaaaa', '$2y$10$mnLmz0jd7dgAtKAzaSf3Q.b3zg8DC8itrBGOK6SS3cfrI9fnslN9K', 'Y');
+INSERT INTO `administrator` (`id_administrator`, `nama_administrator`, `username`, `password`, `aktif`, `level`, `nik_pegawai`) VALUES
+(1, 'Administrator', 'admin', '$2y$10$NY2kKQBgx29bPmoP1YXe/eijF24VMm7VU8FE2u0YBkfQ5HgMNOCpy', 'Y', '1', 0),
+(4, 'Hahahhaa', 'inigua', '$2y$10$5u/JBCd4ubU.7lHa3cVzPeZIX.VBw0LUP0h.FAaTWNyWHJTnAlHta', 'Y', '0', 1234567890123456);
 
 -- --------------------------------------------------------
 
@@ -63,9 +65,7 @@ CREATE TABLE `aspek` (
 --
 
 INSERT INTO `aspek` (`kode_aspek`, `nama_aspek`, `bobot`, `bobot_cf`, `bobot_sf`) VALUES
-('A001', 'Kehadiran Siswa', 35, 65, 35),
-('A002', 'Prestasi Siswa', 35, 55, 45),
-('A003', 'Tanggungan Orang Tua', 30, 65, 35);
+('A001', 'Pertamaa', 100, 60, 40);
 
 -- --------------------------------------------------------
 
@@ -79,60 +79,6 @@ CREATE TABLE `detail_kandidat` (
   `kode_faktor` varchar(3) NOT NULL,
   `nilai_faktor` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `detail_kandidat`
---
-
-INSERT INTO `detail_kandidat` (`id_detail`, `id_kandidat`, `kode_faktor`, `nilai_faktor`) VALUES
-(1, 1, 'F01', 4),
-(2, 1, 'F02', 5),
-(3, 1, 'F03', 4),
-(4, 1, 'F04', 4),
-(5, 1, 'F05', 4),
-(6, 1, 'F06', 3),
-(7, 1, 'F07', 5),
-(8, 1, 'F08', 4),
-(9, 1, 'F09', 3),
-(10, 1, 'F10', 3),
-(11, 1, 'F11', 2),
-(12, 1, 'F12', 4),
-(36, 3, 'F12', 3),
-(35, 3, 'F11', 3),
-(34, 3, 'F10', 2),
-(33, 3, 'F09', 4),
-(32, 3, 'F08', 4),
-(31, 3, 'F07', 3),
-(30, 3, 'F06', 4),
-(29, 3, 'F05', 3),
-(28, 3, 'F04', 3),
-(27, 3, 'F03', 3),
-(26, 3, 'F02', 4),
-(25, 3, 'F01', 3),
-(37, 4, 'F01', 5),
-(38, 4, 'F02', 4),
-(39, 4, 'F03', 5),
-(40, 4, 'F04', 5),
-(41, 4, 'F05', 4),
-(42, 4, 'F06', 5),
-(43, 4, 'F07', 5),
-(44, 4, 'F08', 4),
-(45, 4, 'F09', 4),
-(46, 4, 'F10', 3),
-(47, 4, 'F11', 3),
-(48, 4, 'F12', 4),
-(49, 5, 'F01', 1),
-(50, 5, 'F02', 2),
-(51, 5, 'F03', 3),
-(52, 5, 'F04', 4),
-(53, 5, 'F05', 5),
-(54, 5, 'F06', 5),
-(55, 5, 'F07', 4),
-(56, 5, 'F08', 3),
-(57, 5, 'F09', 2),
-(58, 5, 'F10', 1),
-(59, 5, 'F11', 1),
-(60, 5, 'F12', 2);
 
 -- --------------------------------------------------------
 
@@ -153,18 +99,8 @@ CREATE TABLE `faktor` (
 --
 
 INSERT INTO `faktor` (`kode_faktor`, `kode_aspek`, `nama_faktor`, `jenis_faktor`, `nilai_target`) VALUES
-('F01', 'A001', 'KBM', 'CF', 5),
-('F02', 'A001', 'Ekstra Kurikuler', 'SF', 3),
-('F03', 'A001', 'Kegiatan Insidental', 'SF', 2),
-('F04', 'A002', 'Nilai Matematika', 'CF', 5),
-('F05', 'A002', 'Nilai Bahasa Indonesia', 'CF', 4),
-('F06', 'A002', 'Nilai Bahasa Inggris', 'CF', 4),
-('F07', 'A002', 'Nilai PKn', 'SF', 3),
-('F08', 'A002', 'Nilai Pendidikan Agama', 'CF', 4),
-('F09', 'A002', 'Prestasi Non Akademik', 'SF', 3),
-('F10', 'A003', 'Penghasilan', 'CF', 5),
-('F11', 'A003', 'Jumlah Anak dalam Tanggungan', 'SF', 3),
-('F12', 'A003', 'Jarak dari Rumah ke Sekolah', 'SF', 4);
+('F01', 'A001', 'Penampilan', 'SF', 1),
+('F02', 'A001', 'Zxs', 'CF', 5);
 
 -- --------------------------------------------------------
 
@@ -178,16 +114,6 @@ CREATE TABLE `kandidat` (
   `nilai_akhir` float NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `kandidat`
---
-
-INSERT INTO `kandidat` (`id_kandidat`, `nik`, `nilai_akhir`) VALUES
-(1, '100', 3.90563),
-(3, '101', 3.715),
-(4, '102', 4.21844),
-(5, '300', 2.74563);
-
 -- --------------------------------------------------------
 
 --
@@ -195,7 +121,7 @@ INSERT INTO `kandidat` (`id_kandidat`, `nik`, `nilai_akhir`) VALUES
 --
 
 CREATE TABLE `pegawai` (
-  `nik` int(20) NOT NULL,
+  `nik` bigint(20) NOT NULL,
   `nama_pegawai` varchar(40) NOT NULL,
   `tempat_lahir` varchar(40) NOT NULL,
   `tanggal_lahir` date NOT NULL,
@@ -209,10 +135,28 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`nik`, `nama_pegawai`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `pendidikan`) VALUES
-(100, 'Anton', 'Wonosobo', '2007-05-01', 'P', 'abc', '1-A'),
-(101, 'Bejo', 'Wonosobo', '2010-01-01', 'L', 'adf', '1-A'),
-(102, 'Devi', 'Wonosobo', '2008-01-01', 'P', 'aa', '1-A'),
-(300, 'Cino', 'Wonosobo', '2020-11-23', 'L', 'Selomerto', 'S1');
+(1234567890123456, 'Asda', 'Asdas', '2020-12-21', 'L', 'okook', 'S1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pekerja`
+--
+
+CREATE TABLE `pekerja` (
+  `id_pekerja` int(11) NOT NULL,
+  `nik` bigint(20) NOT NULL,
+  `nama_pekerja` varchar(40) NOT NULL,
+  `tempat_lahir` varchar(40) NOT NULL,
+  `tanggal_lahir` date NOT NULL,
+  `jenis_kelamin` enum('L','P') NOT NULL,
+  `alamat` varchar(100) NOT NULL,
+  `pendidikan` varchar(10) NOT NULL,
+  `tgl_diterima` date DEFAULT NULL,
+  `faktor` json DEFAULT NULL,
+  `nilai_akhir` float DEFAULT NULL,
+  `kandidat_terima` int(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -256,6 +200,12 @@ ALTER TABLE `pegawai`
   ADD PRIMARY KEY (`nik`);
 
 --
+-- Indexes for table `pekerja`
+--
+ALTER TABLE `pekerja`
+  ADD PRIMARY KEY (`id_pekerja`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -263,19 +213,25 @@ ALTER TABLE `pegawai`
 -- AUTO_INCREMENT for table `administrator`
 --
 ALTER TABLE `administrator`
-  MODIFY `id_administrator` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_administrator` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `detail_kandidat`
 --
 ALTER TABLE `detail_kandidat`
-  MODIFY `id_detail` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id_detail` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `kandidat`
 --
 ALTER TABLE `kandidat`
-  MODIFY `id_kandidat` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_kandidat` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `pekerja`
+--
+ALTER TABLE `pekerja`
+  MODIFY `id_pekerja` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

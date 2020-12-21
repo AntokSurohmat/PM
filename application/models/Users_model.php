@@ -7,7 +7,7 @@ class Users_model extends CI_Model {
 		return $this->db->query($query)->row();
 	}
 
-		public function getPegawai(){
+	public function getPegawai(){
 
 		$query = "SELECT * FROM pegawai ORDER BY nik ASC";
 		return $this->db->query($query)->result();
@@ -46,7 +46,7 @@ class Users_model extends CI_Model {
 
 	}
 
-		public function getKandidat(){
+	public function getKandidat(){
 
 		$query = "SELECT a.*, b.nama_pegawai FROM kandidat as a JOIN pegawai as b ON a.nik = b.nik ORDER BY a.id_kandidat ASC";
 		return $this->db->query($query)->result();
@@ -65,7 +65,7 @@ class Users_model extends CI_Model {
 
 	public function getAllHasil(){
 
-		$query = "SELECT s.*, k.nilai_akhir,k.kandidat_terima FROM pegawai as s JOIN kandidat as k ON k.nik = s.nik";
+		$query = "SELECT s.*, k.nilai_akhir FROM pegawai as s JOIN kandidat as k ON k.nik = s.nik";
 		return $this->db->query($query)->result();
 	}
 
@@ -73,5 +73,7 @@ class Users_model extends CI_Model {
 		$query = "SELECT * FROM pekerja";
 		return $this->db->query($query)->result();
 	}
+
+
 
 }

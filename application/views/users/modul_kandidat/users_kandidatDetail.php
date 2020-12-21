@@ -5,8 +5,8 @@
     </h1>
     <ol class="breadcrumb">
       <li>PM</li>
-      <li><a href="<?= base_url('admin/kandidat')?>"><?= $parent ;?></a></li>
-      <li><a href="<?= base_url('admin/').$onekandidat->id_kandidat.''?>"><?= $page ;?></a></li>
+      <li><a href="<?= base_url('users/kandidat')?>"><?= $parent ;?></a></li>
+      <li><a href="<?= base_url('users/').$onekandidat->id_kandidat.''?>"><?= $page ;?></a></li>
     </ol>
     <?php if(validation_errors()) : ?>
       <!-- Row Note -->
@@ -44,20 +44,20 @@
       <div class="col-md-10">
         <div class="box box-primary">
           <div class="box-header with-border">
-            <h3 class="box-title">Edit Kandidat Calon Pegawai</h3>
+            <h3 class="box-title"><?= $page?></h3>
           </div>
           <!-- /.box-header -->
 
           <div class="box-body">
 
 
-            <form class="form-horizontal" action="<?= base_url('admin/kandidatEdit/').$this->encrypt->encode($onekandidat->id_kandidat).''?>" method="post" role="form" >
+            <form class="form-horizontal" action="#" method="post" role="form" >
 
               <input type="hidden" name="zz" readonly value="<?= $onekandidat->id_kandidat ?>" />
               <div class="form-group">
                 <label for="editInputNama" class="col-sm-4 control-label">Nama Pegawai</label>
                 <div class="col-sm-8">
-                  <select class="form-control select2" id="editInputNama" name="nik">
+                  <select class="form-control select2" id="editInputNama" name="nik" disabled>
                     <?php foreach($pegawai as $row) :?>
                       <?php if($row->nik == $onekandidat->nik) :?>
                         <option value="<?= $row->nik?>" selected><?= $row->nama_pegawai;?></option>
@@ -75,7 +75,7 @@
                   <div class="form-group">
                     <label class="col-sm-4 control-label"><?= $fak->kode_faktor?>  -  <?= $fak->nama_faktor?></label>
                     <div class="col-sm-8">
-                      <select class="form-control select2" name="faktor[<?= $fak->kode_faktor?>]" required>
+                      <select class="form-control select2" name="faktor[<?= $fak->kode_faktor?>]" disabled>
                         <option>-- Pilih --</option>
                         <?php foreach($skala as $key => $value) : ?>
                           <?php $sel = ($key == get_nilai_faktor($fak->kode_faktor, $onekandidat->id_kandidat)) ? ' selected' : '' ?>
@@ -87,8 +87,7 @@
                 <?php endforeach;?>
 
                 <div class="box-footer justify-content-between">
-                  <a type="button" class="btn btn-warning" href="<?= base_url('admin/kandidat')?>">Batal</a>
-                  <button type="submit" class="btn btn-primary pull-right">Simpan</button>
+                  <a type="button" class="btn btn-default" href="<?= base_url('users/kandidat')?>">Back</a>
                 </div>
               </form>
 
