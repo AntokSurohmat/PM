@@ -2,11 +2,27 @@
 
 function is_login(){
 	$ci = get_instance();
-	if (!$ci->session->userdata('username')){
+	if (!$ci->session->userdata('username') && !$ci->session->userdata('level')){
 		redirect('auth');
 
 	}
 }
+
+function is_level(){
+	$ci = get_instance();
+	if (!$ci->session->userdata('level') == '1'){
+		redirect('admin');
+
+	}
+}
+
+// function is_users(){
+// 	$ci = get_instance();
+// 	if ($ci->session->userdata('level') == 'Users'){
+// 		redirect('users');
+
+// 	}
+// }
 
 function kode_otomatisAspek() {
 

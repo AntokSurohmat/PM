@@ -24,7 +24,7 @@ class Auth extends CI_Controller {
 			$data['title'] = "Profile Matching";
 			$data['parent'] = "E-Surat";
 			$data['page'] = "Login";
-			$this->load->view('modul_auth/login',$data);
+			$this->load->view('auth/modul_auth/login',$data);
 
 		}else{
 
@@ -35,15 +35,23 @@ class Auth extends CI_Controller {
 
 			if($admin){
 				//jika usernya aktif
-				if($admin->aktif == Y){
+				if($admin->aktif == 'Y'){
 
 					//cek password
 					if(password_verify($this->db->escape_str($password), $admin->password)){
 						$data = [
 							'username' => $admin->username,
+							'level' => $admin->level
 						];
 						$this->session->set_userdata($data);
-						redirect('home');
+						// var_dump($this->session->userdata('level'));
+						// die();
+						
+						if($admin->level == '1'){
+							redirect('admin');
+						}else{
+							redirect('users');
+						}
 					}else{
 						$this->session->set_flashdata('message','Wrong password!');
 						redirect('auth');
@@ -67,6 +75,7 @@ class Auth extends CI_Controller {
 
 	public function logout(){
 		$this->session->unset_userdata('username');
+		$this->session->unset_userdata('level');
 		$this->session->set_flashdata('message','You have been logged out!');
 		redirect('auth');	
 	}

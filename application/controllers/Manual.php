@@ -36,7 +36,7 @@ class Manual extends CI_Controller {
 		$data['title'] = "Profile Matching";
 		$data['parent'] = "Manual";
 		$data['page'] = "Manual Pehitungan";
-		$this->template->load('layout/template','modul_manual/manual',$data);
+		$this->template->load('layout/template','admin/modul_manual/manual',$data);
 
 	}
 
