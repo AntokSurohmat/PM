@@ -52,7 +52,7 @@
               <th>Pendidikan</th>
               <th>Alamat</th>
               <th width="100">Hasil Akhir</th>
-              <th class="text-center">Aksi</th>
+              <th class="text-center">Keterangan</th>
             </tr>
           </thead>
           <tbody>
@@ -65,11 +65,8 @@
               <td><?= $kh->pendidikan; ?></td>
               <td><?= $kh->alamat; ?></td>
               <td><?= $kh->nilai_akhir; ?></td>
-              <?php if($kh->kandidat_terima == '0'){
-                echo '<td>' .'Belum DiTerima'. '</td>';
-              }else{
-                echo '<td>' .'DiTerima'. '</td>';
-              }?>
+              <td>Belum DiTerima</td>
+
             </tr>
           <?php endforeach; ?>
         </tbody>
@@ -114,11 +111,9 @@
             <td><?= $kh->pendidikan; ?></td>
             <td><?= $kh->alamat; ?></td>
             <td><?= $kh->nilai_akhir; ?></td>
-            <?php if($kh->kandidat_terima == '0'){
-              echo '<td>' .'Belum DiTerima'. '</td>';
-            }else{
-              echo '<td>' .'DiTerima'. '</td>';
-            }?>
+            <td class="text-center">
+              <a class="btn btn-xs btn-info" href=""><i class="fa fa-info-circle"></i></a>
+            </td>
           </tr>
         <?php endforeach; ?>
       </tbody>

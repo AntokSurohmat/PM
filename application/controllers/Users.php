@@ -97,7 +97,21 @@ class Users extends CI_Controller {
 
 	}
 
-	public function pegawaiDetail($nik){
+	public function pegawaiDetail($nik = null){
+
+		/*-- Encrypt URL NIM --*/
+		if (count($this->uri->segment_array()) > 3) {
+			$this->session->set_flashdata('message','URL yang anda masukkan salah');
+			redirect('users/pegawai');
+		}
+		if (!isset($nik)) {
+			$this->session->set_flashdata('message','Data yang Anda Inginkan Tidak Mempunyai ID');
+			redirect('users/pegawai');
+		}
+		if (is_numeric($nik)) {
+			$this->session->set_flashdata('message','Url Hanya Bisa Diakses Setelah Terenkripsi');
+			redirect('users/pegawai');
+		} 
 
 		$data['onepegawai'] = $this->users_model->getOnePegawai($this->encrypt->decode($nik));
 
@@ -119,6 +133,31 @@ class Users extends CI_Controller {
 
 	}
 
+	public function aspekDetail($kode_aspek = null){
+
+		/*-- Encrypt URL NIM --*/
+		if (count($this->uri->segment_array()) > 3) {
+			$this->session->set_flashdata('message','URL yang anda masukkan salah');
+			redirect('users/aspek');
+		}
+		if (!isset($kode_aspek)) {
+			$this->session->set_flashdata('message','Data yang Anda Inginkan Tidak Mempunyai ID');
+			redirect('users/aspek');
+		}
+		if (is_numeric($kode_aspek)) {
+			$this->session->set_flashdata('message','Url Hanya Bisa Diakses Setelah Terenkripsi');
+			redirect('users/aspek');
+		} 
+
+		$data['oneaspek'] = $this->users_model->getOneAspek($this->encrypt->decode($kode_aspek));
+
+		$data['title'] = "Profile Matching";
+		$data['parent'] = "Aspek Penilaian";
+		$data['page'] = "Aspek Penilaian Detail";
+		$this->template->load('users/layout/template','users/modul_aspek/users_aspekDetail',$data);
+
+	}
+
 	public function faktor(){
 
 		$data['faktor'] = $this->users_model->getFaktor();
@@ -127,6 +166,32 @@ class Users extends CI_Controller {
 		$data['parent'] = "Data";
 		$data['page'] = "Faktor Penilaian";
 		$this->template->load('users/layout/template','users/modul_faktor/users_faktor',$data);
+
+	}
+
+	public function faktorDetail($kode_faktor = null){
+
+		/*-- Encrypt URL NIM --*/
+		if (count($this->uri->segment_array()) > 3) {
+			$this->session->set_flashdata('message','URL yang anda masukkan salah');
+			redirect('users/faktor');
+		}
+		if (!isset($kode_faktor)) {
+			$this->session->set_flashdata('message','Data yang Anda Inginkan Tidak Mempunyai ID');
+			redirect('users/faktor');
+		}
+		if (is_numeric($kode_faktor)) {
+			$this->session->set_flashdata('message','Url Hanya Bisa Diakses Setelah Terenkripsi');
+			redirect('users/faktor');
+		} 
+
+		$data['onefaktor'] = $this->users_model->getOneFaktor($this->encrypt->decode($kode_faktor));
+		$data['aspek'] = $this->admin_model->getAspek();
+
+		$data['title'] = "Profile Matching";
+		$data['parent'] = "Faktor Penilaian";
+		$data['page'] = "Faktor Penilaian Detail";
+		$this->template->load('users/layout/template','users/modul_faktor/users_faktorDetail',$data);
 
 	}
 
@@ -141,6 +206,36 @@ class Users extends CI_Controller {
 		$data['parent'] = "Kandidat";
 		$data['page'] = "Kandidat Calon Pegawai";
 		$this->template->load('users/layout/template','users/modul_kandidat/users_kandidat',$data);
+
+	}
+
+
+	public function kandidatDetail($id_kandidat = null){
+
+		/*-- Encrypt URL NIM --*/
+		if (count($this->uri->segment_array()) > 3) {
+			$this->session->set_flashdata('message','URL yang anda masukkan salah');
+			redirect('users/kandidat');
+		}
+		if (!isset($id_kandidat)) {
+			$this->session->set_flashdata('message','Data yang Anda Inginkan Tidak Mempunyai ID');
+			redirect('users/kandidat');
+		}
+		if (is_numeric($id_kandidat)) {
+			$this->session->set_flashdata('message','Url Hanya Bisa Diakses Setelah Terenkripsi');
+			redirect('users/kandidat');
+		} 
+
+
+		$data['onekandidat'] = $this->users_model->getOneKandidat($this->encrypt->decode($id_kandidat));
+		$data['pegawai'] = $this->users_model->getPegawai();
+		$data['faktor'] = $this->users_model->getFaktor();
+		$data['skala'] = array(1 => 'Sangat Kurang', 2 => 'Kurang', 3 => 'Cukup', 4 => 'Baik', 5 => 'Sangat Baik') ;
+
+		$data['title'] = "Profile Matching";
+		$data['parent'] = "Kandidat";
+		$data['page'] = "Kandidat Calon Pegawai Detail";
+		$this->template->load('users/layout/template','users/modul_kandidat/users_kandidatDetail',$data);
 
 	}
 

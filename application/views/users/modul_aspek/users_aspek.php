@@ -5,7 +5,7 @@
     </h1>
     <ol class="breadcrumb">
       <li>PM</li>
-      <li><a href="<?= base_url('admin/aspek')?>"><?= $page ;?></a></li>
+      <li><a href="<?= base_url('users/aspek')?>"><?= $page ;?></a></li>
     </ol>
     <?php if(validation_errors()) : ?>
       <!-- Row Note -->
@@ -64,7 +64,7 @@
               <td><?= $row->bobot_cf; ?></td>
               <td><?= $row->bobot_sf; ?></td>
               <td>
-                <a class="btn btn-xs btn-info" href="<?= base_url('users/faktorDetail/').$this->encrypt->encode($row->kode_aspek).'';?>" title="Detail"><i class="fa fa-info-circle"></i></a>
+                <a class="btn btn-xs btn-info" href="<?= base_url('users/aspekDetail/').$this->encrypt->encode($row->kode_aspek).'';?>" title="Detail"><i class="fa fa-info-circle"></i></a>
               </td>
             </tr>
           <?php endforeach; ?>

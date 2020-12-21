@@ -5,7 +5,7 @@
     </h1>
     <ol class="breadcrumb">
       <li>PM</li>
-      <li><a href="<?= base_url('admin/dataPegawai')?>"><?= $page ;?></a></li>
+      <li><a href="<?= base_url('users/faktor')?>"><?= $page ;?></a></li>
     </ol>
     <?php if(validation_errors()) : ?>
       <!-- Row Note -->

@@ -17,13 +17,13 @@
         </span>
       </a>
       <ul class="treeview-menu">
-        <li class="<?php if($page == 'Calon Pegawai' || $page == 'Add Calon Pegawai' || $page == 'Edit Calon Pegawai'){ echo 'active';}?>">
+        <li class="<?php if($page == 'Calon Pegawai' || $page == 'Calon Pegawai Detail' || $page == 'Edit Calon Pegawai'){ echo 'active';}?>">
           <a href="<?= base_url('users/pegawai')?>"><i class="fa fa-circle-o"></i>Calon Pegawai</a>
         </li>
-        <li class="<?php if($page == 'Aspek Penilaian' || $page == 'Add Aspek Penilaian' || $page == 'Edit Aspek Penilaian'){ echo 'active';}?>">
+        <li class="<?php if($page == 'Aspek Penilaian' || $page == 'Aspek Penilaian Detail'){ echo 'active';}?>">
           <a href="<?= base_url('users/aspek')?>"><i class="fa fa-circle-o"></i>Aspek Penilaian</a>
         </li>
-        <li class="<?php if($page == 'Faktor Penilaian' || $page == 'Add Faktor Penilaian' || $page == 'Edit Faktor Penilaian'){ echo 'active';}?>">
+        <li class="<?php if($page == 'Faktor Penilaian' || $page == 'Faktor Penilaian Detail'){ echo 'active';}?>">
           <a href="<?= base_url('users/faktor')?>"><i class="fa fa-circle-o"></i>Faktor Penilaian</a>
         </li>
       </ul>

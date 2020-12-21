@@ -84,7 +84,7 @@ class Admin_model extends CI_Model {
 
 	}
 
-		public function getKandidat(){
+	public function getKandidat(){
 
 		$query = "SELECT a.*, b.nama_pegawai FROM kandidat as a JOIN pegawai as b ON a.nik = b.nik ORDER BY a.id_kandidat ASC";
 		return $this->db->query($query)->result();
@@ -111,6 +111,22 @@ class Admin_model extends CI_Model {
 		$query = "SELECT s.*, k.nilai_akhir FROM pegawai as s JOIN kandidat as k ON k.nik = s.nik";
 		return $this->db->query($query)->result();
 	}
+
+	public function getAllDataOneKandidat($nik){
+		$query = "SELECT * FROM kandidat as k  JOIN detail_kandidat as dk ON dk.id_kandidat = k.id_kandidat WHERE k.nik = '$nik'";
+		return $this->db->query($query)->result();
+	}
+
+	public function getAllDiTerima(){
+		$query = "SELECT * FROM pekerja";
+		return $this->db->query($query)->result();
+	}
+
+	public function getOneDiTerima($nik){
+		$query = "SELECT * FROM pekerja WHERE nik = '$nik";
+		return $this->db->query($query)->row();
+	}
+
 
 
 }
