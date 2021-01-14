@@ -768,7 +768,7 @@ class Admin extends CI_Controller {
 	public function hasil(){
 
 		$data['user'] = $this->db->get_where('administrator',['username' => $this->session->userdata('username')])->row();
-
+		$data['pembobotan'] = array(0 => 5, 1 => 4.5, -1 => 4, 2 => 3.5, -2 => 3, 3 => 2.5, -3 => 2, 4 => 1.5, -4 => 1);
 
 
 		$data['kandidathasil'] = $this->admin_model->getKandidatHasil();
@@ -851,10 +851,13 @@ class Admin extends CI_Controller {
 	}
 
 	public function pekerjaTerimaDetail($id_pekerja = null){
-		$data['kandidathasil'] = $this->admin_model->getKandidatHasil();
+
+		$data['user'] = $this->db->get_where('administrator',['username' => $this->session->userdata('username')])->row();
+		
+		$data['onepekerja'] = $this->admin_model->getOneDiTerima($this->encrypt->decode($id_pekerja));
 
 		$data['title'] = "Profile Matching";
-		$data['parent'] = "PM";
+		$data['parent'] = "Pekerja";
 		$data['page'] = "Detail Pekerja";
 		$this->template->load('admin/layout/template','admin/modul_hasil/hasilDetail',$data);
 	}

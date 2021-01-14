@@ -38,8 +38,8 @@
   <section class="content">
 
     <div class="box">
-      <div class="box-header">
-        <h3 class="box-title">Faktor Penilaian</h3>
+      <div class="box-header with-border">
+        <h3 class="box-title">Data <?= $page?></h3>
         <div class="box-tools pull-right">
           <a class="btn bg-teal btn-sm" href="<?= base_url('admin/faktorAdd')?>"><i class="fa fa-plus"> Add Data</i></a>
         </div>
