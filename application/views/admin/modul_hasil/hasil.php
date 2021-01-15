@@ -37,11 +37,11 @@
       <section class="content">
 
         <div class="box box-primary">
-          <div class="box-header">
+          <div class="box-header with-border">
             <h3 class="box-title">Perhitungan Hasil Akhir Calon Pegawai</h3>
           </div>
           <!-- /.box-header -->
-          <div class="box-body ">
+          <div class="box-body table-responsive">
 
             <?php 
 
@@ -115,7 +115,7 @@
 
             ?>
 
-            <table id="example1" class="table table-bordered table-striped">
+            <table id="example1" class="table table-bordered table-striped display nowrap" style="width:100%">
               <thead>
                 <tr>
                   <th>No</th>
@@ -132,20 +132,39 @@
                 <?php $i=0; foreach ($kandidathasil as $kh) :  $i++;?>
                 <tr>
                   <th scope="row"><?= $i ;?></th>
+                  <!--                   <td><?= $kh->id_kandidat; ?></td> -->
                   <td><?= $kh->nik; ?></td>
                   <td><?= $kh->nama_pegawai; ?></td>
                   <td><?= $kh->jenis_kelamin; ?></td>
                   <td><?= $kh->pendidikan; ?></td>
                   <td><?= $kh->alamat; ?></td>
-                  <?php if($kh->nilai_akhir == '0') : ?>
-                    <td>
 
+                  <?php 
+                  $query = "SELECT nilai_akhir FROM kandidat WHERE id_kandidat = '$kh->id_kandidat' ";
+                  $result = $this->db->query($query)->row();
+                  // echo $result->nilai_akhir;
+                  ?>
+
+                  <?php if($kh->nilai_akhir == '0') : ?>
+
+                    <td>
                       <form action="<?= base_url('admin/updateNilai/'.$kh->id_kandidat)?>" method="post" >
                         <input type="hidden" readonly value="<?= $tnilai ?>" name="nilai_akhir" class="form-control" >
                         <button type="submit" class="btn btn-sm btn-warning">Update</button>
                       </form>
                     </td>
                     <td><a class="btn btn-sm btn-danger" href="#" disabled>Terima</a></td>
+
+                    <?php elseif($result->nilai_akhir !=  $tnilai ) : ?>
+
+                    <td>
+                      <form action="<?= base_url('admin/updateNilai/'.$kh->id_kandidat)?>" method="post" >
+                        <input type="hidden" readonly value="<?= $tnilai ?>" name="nilai_akhir" class="form-control" >
+                        <button type="submit" class="btn btn-sm btn-danger">Update Again</button>
+                      </form>
+                    </td>
+                    <td><a class="btn btn-sm btn-danger" href="#" disabled>Terima</a></td>
+
                     <?php else : ?>
                       <td><?= $kh->nilai_akhir; ?></td>
                       <td><a class="btn btn-sm btn-success" href="#" data-toggle="modal" data-target="#deleteModalPekerja<?= $kh->nik?>">Terima</a></td>
@@ -167,12 +186,12 @@
       <section class="content">
 
         <div class="box box-warning">
-          <div class="box-header">
+          <div class="box-header with-border">
             <h3 class="box-title">List Calon Pegawai Yang Sudah DiTerima</h3>
           </div>
           <!-- /.box-header -->
-          <div class="box-body ">
-            <table id="example2" class="table table-bordered table-striped">
+          <div class="box-body table-responsive">
+            <table id="example2" class="table table-bordered table-striped display nowrap" style="width:100%">
               <thead>
                 <tr>
                   <th>No</th>

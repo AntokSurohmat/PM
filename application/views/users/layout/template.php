@@ -23,6 +23,7 @@
    <link rel="stylesheet" href="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/bootstrap-daterangepicker/daterangepicker.css">
    <!-- DataTables -->
    <link rel="stylesheet" href="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+   <link rel="stylesheet" href="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
    <!-- Select2 -->
    <link rel="stylesheet" href="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/select2/dist/css/select2.min.css">
    <!-- Me -->
@@ -33,7 +34,13 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
-
+<style type="text/css">
+  .form-horizontal .control-label {
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: left;
+  }
+</style>
 <!-- Google Font -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -107,6 +114,8 @@
     <!-- DataTables -->
     <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
+    <!--     <script src="https://cdn.datatables.net/responsive/2.2.6/js/dataTables.responsive.min.js"></script> -->
     <!-- Select2 -->
     <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/select2/dist/js/select2.full.min.js"></script>
     <!-- FastClick -->
@@ -115,13 +124,86 @@
     <script src="<?= base_url('assets/AdminLTE-2.4.18/');?>bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
     <script>
       $(function () {
-        $('#example1').DataTable();
-        $('#example2').DataTable();
-        $('#example3').DataTable();
-        $('#example4').DataTable();
-        $('#example5').DataTable();
-        $('#example6').DataTable();
-        $('.select2').select2();
+        $('#example1').DataTable({
+
+          paging : true,
+          responsive: true,
+          autoWidth: true,
+          info: true,
+          ordering: true,
+          lengthChange: true
+
+        });
+        $('#example2').DataTable({
+
+          paging : true,
+          responsive: true,
+          autoWidth: true,
+          info: true,
+          ordering: true,
+          lengthChange: true
+
+        });
+        $('#example3').DataTable({
+
+          paging : true,
+          responsive: true,
+          autoWidth: true,
+          info: true,
+          ordering: true,
+          lengthChange: true
+
+        });
+        $('#example4').DataTable({
+
+          paging : true,
+          responsive: true,
+          autoWidth: true,
+          info: true,
+          ordering: true,
+          lengthChange: true
+
+        });
+        $('#example5').DataTable({
+
+          paging : true,
+          responsive: true,
+          autoWidth: true,
+          info: true,
+          ordering: true,
+          lengthChange: true
+
+        });
+        $('#example6').DataTable({
+
+          paging : true,
+          responsive: true,
+          autoWidth: true,
+          info: true,
+          ordering: true,
+          lengthChange: true
+
+        });
+        $('#example7').DataTable({
+
+          paging : true,
+          responsive: true,
+          autoWidth: true,
+          info: true,
+          ordering: true,
+          lengthChange: true
+
+        });
+        $('.select2').select2({
+
+          paging : true,
+          responsive: true,
+          autoWidth: true,
+          info: true,
+          ordering: true,
+          lengthChange: true
+
+        });
         var timeout = 5000; 
         $('.alert').delay(timeout).fadeOut(500);
       })

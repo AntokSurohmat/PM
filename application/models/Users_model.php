@@ -73,7 +73,10 @@ class Users_model extends CI_Model {
 		$query = "SELECT * FROM pekerja";
 		return $this->db->query($query)->result();
 	}
-
+	public function getOneDiTerima($id){
+		$query = "SELECT * FROM pekerja WHERE id_pekerja = '$id'";
+		return $this->db->query($query)->row();
+	}
 
 
 }

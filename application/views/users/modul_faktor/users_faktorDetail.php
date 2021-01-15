@@ -6,7 +6,7 @@
     <ol class="breadcrumb">
       <li>PM</li>
       <li><a href="<?= base_url('users/faktor')?>"><?= $parent ;?></a></li>
-      <li><a href="<?= base_url('users/faktorDetail/').$onefaktor->kode_faktor.''?>"><?= $page ;?></a></li>
+      <li><a href="<?= base_url('users/faktorDetail/').$this->encrypt->encode($onefaktor->kode_faktor).''?>"><?= $page ;?></a></li>
     </ol>
     <?php if(validation_errors()) : ?>
       <!-- Row Note -->

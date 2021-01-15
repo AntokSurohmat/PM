@@ -824,6 +824,8 @@ class Admin extends CI_Controller {
 			);
 
 			$json_format = json_encode($faktor);
+			// var_dump($json_format);
+			// die();
 			$nilai_akhir = $this->db->query($query)->row()->nilai_akhir;
 			$data = [
 
@@ -855,25 +857,26 @@ class Admin extends CI_Controller {
 		$data['user'] = $this->db->get_where('administrator',['username' => $this->session->userdata('username')])->row();
 		
 		$data['onepekerja'] = $this->admin_model->getOneDiTerima($this->encrypt->decode($id_pekerja));
-
+		$data['faktor'] = $this->admin_model->getFaktor();
+		$data['skala'] = array(1 => 'Sangat Kurang', 2 => 'Kurang', 3 => 'Cukup', 4 => 'Baik', 5 => 'Sangat Baik') ;
 		$data['title'] = "Profile Matching";
 		$data['parent'] = "Pekerja";
 		$data['page'] = "Detail Pekerja";
 		$this->template->load('admin/layout/template','admin/modul_hasil/hasilDetail',$data);
 	}
 
-	public function pekerjakembalikan(){
+	// public function pekerjakembalikan(){
 
-		$data['user'] = $this->db->get_where('administrator',['username' => $this->session->userdata('username')])->row();
+	// 	$data['user'] = $this->db->get_where('administrator',['username' => $this->session->userdata('username')])->row();
 
-		$data['kandidathasil'] = $this->admin_model->getKandidatHasil();
+	// 	$data['kandidathasil'] = $this->admin_model->getKandidatHasil();
 
-		$data['title'] = "Profile Matching";
-		$data['parent'] = "PM";
-		$data['page'] = "Hasil Perhitungan";
-		$this->template->load('admin/layout/template','admin/modul_hasil/hasil',$data);
+	// 	$data['title'] = "Profile Matching";
+	// 	$data['parent'] = "PM";
+	// 	$data['page'] = "Hasil Perhitungan";
+	// 	$this->template->load('admin/layout/template','admin/modul_hasil/hasil',$data);
 
-	}
+	// }
 
 	public function pekerjadelete($id_pekerja = null){
 

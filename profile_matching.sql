@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 21, 2020 at 11:52 PM
+-- Generation Time: Jan 15, 2021 at 09:07 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.19
 
@@ -135,6 +135,7 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`nik`, `nama_pegawai`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `pendidikan`) VALUES
+(6543210123456789, 'Ttt', 'Wonosobo', '2021-01-14', 'L', 'jauh', 'S1'),
 (1234567890123456, 'Asda', 'Asdas', '2020-12-21', 'L', 'okook', 'S1');
 
 -- --------------------------------------------------------
@@ -157,6 +158,13 @@ CREATE TABLE `pekerja` (
   `nilai_akhir` float DEFAULT NULL,
   `kandidat_terima` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pekerja`
+--
+
+INSERT INTO `pekerja` (`id_pekerja`, `nik`, `nama_pekerja`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `pendidikan`, `tgl_diterima`, `faktor`, `nilai_akhir`, `kandidat_terima`) VALUES
+(10, 1234567890123456, 'Asda', 'Asdas', '2020-12-21', 'L', 'okook', 'S1', '2021-01-15', '{\"kode_faktor\": [\"F02\", \"F01\"], \"nilai_faktor\": [\"1\", \"3\"]}', 2, 1);
 
 --
 -- Indexes for dumped tables
@@ -219,19 +227,19 @@ ALTER TABLE `administrator`
 -- AUTO_INCREMENT for table `detail_kandidat`
 --
 ALTER TABLE `detail_kandidat`
-  MODIFY `id_detail` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id_detail` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `kandidat`
 --
 ALTER TABLE `kandidat`
-  MODIFY `id_kandidat` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_kandidat` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `pekerja`
 --
 ALTER TABLE `pekerja`
-  MODIFY `id_pekerja` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id_pekerja` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

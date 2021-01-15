@@ -6,7 +6,7 @@
     <ol class="breadcrumb">
       <li>PM</li>
       <li><a href="<?= base_url('admin/kandidat')?>"><?= $parent ;?></a></li>
-      <li><a href="<?= base_url('admin/').$onekandidat->id_kandidat.''?>"><?= $page ;?></a></li>
+      <li><a href="<?= base_url('admin/kandidatEdit/').$this->encrypt->encode($onekandidat->id_kandidat).''?>"><?= $page ;?></a></li>
     </ol>
     <?php if(validation_errors()) : ?>
       <!-- Row Note -->

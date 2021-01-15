@@ -41,8 +41,8 @@
         <h3 class="box-title">Perhitungan Hasil Akhir Calon Pegawai</h3>
       </div>
       <!-- /.box-header -->
-      <div class="box-body ">
-        <table id="example1" class="table table-bordered table-striped">
+      <div class="box-body table-responsive">
+        <table id="example1" class="table table-bordered table-striped display nowrap" style="width:100%">
           <thead>
             <tr>
               <th>No</th>
@@ -84,11 +84,11 @@
 
   <div class="box box-warning">
     <div class="box-header">
-      <h3 class="box-title">List Calon Pegawai Yang Sudah DiTerima</h3>
+      <h3 class="box-title">List Pegawai Yang Sudah DiTerima</h3>
     </div>
     <!-- /.box-header -->
     <div class="box-body ">
-      <table id="example2" class="table table-bordered table-striped">
+      <table id="example2" class="table table-bordered table-striped display nowrap" style="width: 100%">
         <thead>
           <tr>
             <th>No</th>
@@ -112,7 +112,7 @@
             <td><?= $kh->alamat; ?></td>
             <td><?= $kh->nilai_akhir; ?></td>
             <td class="text-center">
-              <a class="btn btn-xs btn-info" href=""><i class="fa fa-info-circle"></i></a>
+              <a class="btn btn-xs btn-info" href="<?= base_url('users/terimaDetail/'.$this->encrypt->encode($kh->id_pekerja))?>"><i class="fa fa-info-circle"></i></a>
             </td>
           </tr>
         <?php endforeach; ?>

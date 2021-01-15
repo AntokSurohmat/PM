@@ -5,8 +5,8 @@
     </h1>
     <ol class="breadcrumb">
       <li>PM</li>
-      <li><a href="<?= base_url('users/dataPegawai')?>"><?= $parent ;?></a></li>
-      <li><a href="<?= base_url('users/dataPegawaiEdit/').$this->encrypt->encode($onepegawai->nik).''?>"><?= $page ;?></a></li>
+      <li><a href="<?= base_url('users/pegawai')?>"><?= $parent ;?></a></li>
+      <li><a href="<?= base_url('users/pegawaiDetail/').$this->encrypt->encode($onepegawai->nik).''?>"><?= $page ;?></a></li>
     </ol>
     <?php if(validation_errors()) : ?>
       <!-- Row Note -->

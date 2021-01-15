@@ -109,7 +109,7 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <h3>Selamat Datang</h3>
+          <h3>Selamat Datang Kepada <b><?= $user->username?></b></h3>
         </div>
         <!-- ./box-body -->
       </div>

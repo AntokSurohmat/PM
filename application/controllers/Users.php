@@ -19,6 +19,8 @@ class Users extends CI_Controller {
 	}
 
 	public function index(){
+		
+		$data['user'] = $this->db->get_where('administrator',['username' => $this->session->userdata('username')])->row();
 
 		$data['title'] = "Profile Matching";
 		$data['parent'] = "PM";
@@ -251,6 +253,19 @@ class Users extends CI_Controller {
 		$data['page'] = "Hasil Perhitungan";
 		$this->template->load('users/layout/template','users/modul_hasil/users_hasil',$data);
 
+	}
+
+	public function terimaDetail($id_pekerja = null){
+
+		$data['user'] = $this->db->get_where('administrator',['username' => $this->session->userdata('username')])->row();
+		
+		$data['onepekerja'] = $this->users_model->getOneDiTerima($this->encrypt->decode($id_pekerja));
+		$data['faktor'] = $this->users_model->getFaktor();
+		$data['skala'] = array(1 => 'Sangat Kurang', 2 => 'Kurang', 3 => 'Cukup', 4 => 'Baik', 5 => 'Sangat Baik') ;
+		$data['title'] = "Profile Matching";
+		$data['parent'] = "Pekerja";
+		$data['page'] = "Detail Pekerja";
+		$this->template->load('users/layout/template','users/modul_hasil/users_hasilDetail',$data);
 	}
 
 }

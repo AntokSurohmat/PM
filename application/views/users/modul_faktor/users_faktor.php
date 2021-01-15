@@ -39,11 +39,11 @@
 
     <div class="box">
       <div class="box-header">
-        <h3 class="box-title">Faktor Penilaian</h3>
+        <h3 class="box-title">Data <?= $page?></h3>
       </div>
       <!-- /.box-header -->
       <div class="box-body table-responsive">
-        <table id="example1" class="table table-bordered table-striped">
+        <table id="example1" class="table table-bordered table-striped display nowrap" style="width:100%">
           <thead>
             <tr>
               <th >No</th>

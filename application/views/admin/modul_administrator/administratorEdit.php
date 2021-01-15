@@ -70,7 +70,7 @@
                 <label for="editinputPassword" class="col-sm-2 control-label">Password</label>
                 <div class="col-sm-10">
                   <input type="text" name="password" class="form-control" id="editinputPassword" placeholder="Password">
-
+                  <p class="text-danger"><small><i>Kosongkan Jika Tidak Ingin Mengganti Password</i></small></p>
                 </div>
               </div>
               <div class="form-group">

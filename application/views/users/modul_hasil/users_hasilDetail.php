@@ -5,8 +5,8 @@
     </h1>
     <ol class="breadcrumb">
       <li>PM</li>
-      <li><a href="<?= base_url('admin/hasil')?>"><?= $parent ;?></a></li>
-      <li><a href="<?= base_url('admin/pekerjaTerimaDetail/').$this->encrypt->encode($onepekerja->id_pekerja).''?>"><?= $page ;?></a></li>
+      <li><a href="<?= base_url('users/hasil')?>"><?= $parent ;?></a></li>
+      <li><a href="<?= base_url('users/terimaDetail/').$this->encrypt->encode($onepekerja->id_pekerja).''?>"><?= $page ;?></a></li>
     </ol>
     <?php if(validation_errors()) : ?>
       <!-- Row Note -->
@@ -155,7 +155,7 @@
               </div>
 
               <div class="box-footer justify-content-between">
-                <a type="button" class="btn btn-warning" href="<?= base_url('admin/hasil')?>">Kembali</a>
+                <a type="button" class="btn btn-warning" href="<?= base_url('users/hasil')?>">Kembali</a>
                 <!--                 <button type="submit" class="btn btn-primary pull-right">Simpan</button> -->
               </div>
             </form>

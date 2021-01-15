@@ -6,7 +6,7 @@
     <ol class="breadcrumb">
       <li>PM</li>
       <li><a href="<?= base_url('users/aspek')?>"><?= $parent ;?></a></li>
-      <li><a href="<?= base_url('users/aspekEdit/').$this->encrypt->encode($oneaspek->kode_aspek).''?>"><?= $page ;?></a></li>
+      <li><a href="<?= base_url('users/aspekDetail/').$this->encrypt->encode($oneaspek->kode_aspek).''?>"><?= $page ;?></a></li>
     </ol>
     <?php if(validation_errors()) : ?>
       <!-- Row Note -->
